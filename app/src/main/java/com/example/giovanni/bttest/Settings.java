@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -23,8 +25,13 @@ import java.util.Set;
 public class Settings extends Fragment
 {
     private static final int REQUEST_ENABLE_BT = 0;
+    private static final String TAG_NAME = "name";
+    private static final String TAG_ID = "id";
     private Button On,Off,Visible,Scan;
     private ListView bluList;
+
+
+    ArrayList<HashMap<String, String>> devicesList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,22 +52,17 @@ public class Settings extends Fragment
             // Device does not support Bluetooth
         }
 
-        On.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        On.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Log.e("Settings Report", "Turning On Bluetooth");
                 // Turn On Bluetooth
-                if (!mBluetoothAdapter.isEnabled())
-                {
+                if (!mBluetoothAdapter.isEnabled()) {
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
                     Toast.makeText(getActivity().getApplicationContext(), "Turned on"
                             , Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(getActivity().getApplicationContext(),"Already on",
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Already on",
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -90,27 +92,55 @@ public class Settings extends Fragment
             }
         });
 
-        Scan.setOnClickListener(new View.OnClickListener() {
+        Scan.setOnClickListener(new View.OnClickListener()
+        {
             public void onClick(View v) {
 
                 Log.e("Settings Report", "Requesting bluetooth devices");
                 Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
-                ArrayList list = new ArrayList();
+                devicesList = new ArrayList<HashMap<String, String>>();
+                //ArrayList list = new ArrayList();
                 if (pairedDevices.size() > 0)
                 {
+                    HashMap<String, String> devices = new HashMap<String, String>();
                     // Loop through paired devices
                     for (BluetoothDevice device : pairedDevices)
-                        list.add(device.getName() + "\n" + device.getAddress());
+                    {
+                        devices.put(TAG_ID, device.getAddress());
+                        devices.put(TAG_NAME, device.getName());
+                        devicesList.add(devices);
+                        Log.e("Settings Report", "Added: " + device.getName() + "with ID: " + device.getName());
+                    }
 
-                    Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
+
+                            Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
                             Toast.LENGTH_SHORT).show();
-                    ArrayAdapter adapter = new ArrayAdapter
-                            (getActivity(), android.R.layout.simple_list_item_1, list);
+
+                    //ArrayAdapter adapter = new ArrayAdapter
+                    BluAdapter adapter = new BluAdapter(getActivity(),devicesList);
                     bluList.setAdapter(adapter);
+
+                    bluList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                    {
+                        @Override
+                        public void onItemClick(AdapterView <?> parent, View view,
+                                                int position, long id)
+                        {
+                            String map = (String) parent.getItemAtPosition(position).toString();
+                            Log.e("BluList Report", "Clicked list item: " +
+                            position +" Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+
+
+                            //String item = (String) parent.getItemAtPosition(position);
+                            Log.e("Settings report","Requesting connection to device: "+ devicesList.get(position).get(TAG_NAME).toString());
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Connecting to: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
                 }
             }
-
         });
 
         Log.e("Settings report","view created.");

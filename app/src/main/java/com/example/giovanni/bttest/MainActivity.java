@@ -102,7 +102,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
             case 0:
                 CPanel firstFragment = new CPanel();
                 transaction.replace(R.id.container, firstFragment);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case 1:
@@ -125,10 +125,10 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                     transaction.show(settings);
                 } else
                 */
-                { // fragment needs to be added to frame container
+                 // fragment needs to be added to frame container
                     transaction.replace(R.id.container, settings, "settings");
-                    transaction.addToBackStack(null);
-                }
+                    //transaction.addToBackStack(null);
+
                 transaction.commit();
                 break;
         }
