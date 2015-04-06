@@ -28,35 +28,14 @@
     <string name="updateEx">Updated on Wed 1 3:00pm</string>
     <string name="log">Last log</string>
     <string name="logEx">landing protocol completed</string>
+    <string name="Info">Information</string>
 
-    <!-- Profile -->
+ <!-- Settings -->
 
-    <string name="NomeProfile">Marco Minchioni</string>
-    <string name="profile">My profile</string>
-    <string name="Profile">Profile</string>
-    <string name="PokeroomFavourite">Pokerooms preferite</string>
-    <string name="Score">Score</string>
-    <string name="Status">Status</string>
-    <string name="Info">Informazioni</string>
-    <string name="Email">Email</string>
-    <string name="Motto">Motto</string>
-    <string name="Mano">Mano Preferita</string>
-    <string name="descrizione">Descrizione</string>
-    <string name="DescBase"> Descrizione di base</string>
-    <string name="Gioco">Poker preferito</string>
-    <string name="Fullname">Full name</string>
-    <string name="scoreTest"> 3298</string>
-    <string name="giocoTest"> Italian poker, Omaha, Texas Hold em.</string>
-    <string name="pokTest"> Prince Club, Cotton Poker Club.</string>
-    <string name="mottoTest">All in the money!!!</string>
-    <string name="manoTest">Definitely American Airlines</string>
-    <string name="emailTest"> wsop@gamble.com</string>
-    <string name="userInfoTest"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-    <string name="modify_profile">Update my profile</string>
-    <string name="textpro">Text</string>
-    <string name="editpro">Edit</string>
-    <string name="savepro">Save</string>
-    <string name="change">Change</string>
-    <string name="cancelpro">Cancel</string>
+    <string name="bluPar">Bluetooth Settings</string>
+    <string name="TurnOn">Turn On</string>
+    <string name="visible">Visible</string>
+    <string name="Scan">Scan</string>
+    
 
 </resources>

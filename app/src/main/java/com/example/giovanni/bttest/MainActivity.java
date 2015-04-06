@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,17 +24,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Set;
 
-public class MainActivity extends FragmentActivity
+
+    public class MainActivity extends FragmentActivity
 implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
+    private static final int REQUEST_ENABLE_BT = 0;
     /**
      * The {@link android.support.v4.view.ViewPager} that will display the object collection.
      */
     ViewPager mViewPager;
-
+    private Button button1;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -42,6 +50,9 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    CPanel cPanel = new CPanel();
+    Settings settings = new Settings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,26 +78,53 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 return;
             }
 
-            // Create a new Fragment to be placed in the activity layout
-            CPanel firstFragment = new CPanel();
 
             // In case this activity was started with special instructions from an
             // Intent, pass the Intent's extras to the fragment as arguments
-            //firstFragment.setArguments(getIntent().getExtras());
+            //cPanel.setArguments(getIntent().getExtras());
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, firstFragment).commit();
+                    .add(R.id.container, cPanel).commit();
         }
-
 
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position)
     {
+        Fragment fragment;
         // update the main content by replacing fragments
-        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        switch(position)
+        {
+            default:
+            case 0:
+                CPanel firstFragment = new CPanel();
+                transaction.replace(R.id.container, firstFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+            case 1:
+
+                CPanel secondFragment = new CPanel();
+                transaction.replace(R.id.container, secondFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+            case 2:
+                if (cPanel.isAdded()) {transaction.hide(cPanel);}
+                if (settings.isAdded()) { // if the fragment is already in container
+                    transaction.show(settings);
+                } else { // fragment needs to be added to frame container
+                    transaction.add(R.id.container, settings, "settings");
+                    transaction.addToBackStack(null);
+                }
+                //transaction.replace(R.id.container, thirdFragment);
+                transaction.commit();
+                break;
+        }
     }
 
     public void onSectionAttached(int number)
@@ -111,10 +149,9 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 mTitle = getString(R.string.title_section2);
                 break;
             case 3:
-                /*
-                BluetoothChatFragment fragment = new BluetoothChatFragment();
-                transaction.replace(R.id.sample_content_fragment, fragment);
-                transaction.commit();*/
+                Settings thirdFragment = new Settings();
+                transaction.replace(R.id.container, thirdFragment);
+                transaction.commit();
                 mTitle = getString(R.string.title_section3);
                 break;
         }
@@ -150,7 +187,8 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
