@@ -114,14 +114,21 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 break;
 
             case 2:
-                if (cPanel.isAdded()) {transaction.hide(cPanel);}
-                if (settings.isAdded()) { // if the fragment is already in container
+                if (cPanel.isAdded())
+                {
+                    transaction.hide(cPanel);
+                }
+                /*
+                if (settings.isAdded())
+                {
+                    // if the fragment is already in container
                     transaction.show(settings);
-                } else { // fragment needs to be added to frame container
-                    transaction.add(R.id.container, settings, "settings");
+                } else
+                */
+                { // fragment needs to be added to frame container
+                    transaction.replace(R.id.container, settings, "settings");
                     transaction.addToBackStack(null);
                 }
-                //transaction.replace(R.id.container, thirdFragment);
                 transaction.commit();
                 break;
         }
