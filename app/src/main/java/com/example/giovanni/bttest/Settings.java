@@ -2,6 +2,7 @@ package com.example.giovanni.bttest;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,9 +16,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by userk on 06/04/15.
@@ -29,14 +34,22 @@ public class Settings extends Fragment
     private static final String TAG_ID = "id";
     private Button On,Off,Visible,Scan;
     private ListView bluList;
-
+    private BluetoothSocket mmSocket;
+    private BluetoothDevice mmDevice;
+    BluetoothAdapter mBluetoothAdapter;
+    OutputStream mmOutputStream;
+    InputStream mmInputStream;
+    Thread workerThread;
+    byte[] readBuffer;
+    int readBufferPosition;
+    int counter;
+    volatile boolean stopWorker;
 
     ArrayList<HashMap<String, String>> devicesList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.settings, container, false);
         On = (Button) view.findViewById(R.id.turnOnBlu);
@@ -47,10 +60,12 @@ public class Settings extends Fragment
 
         bluList = (ListView) view.findViewById(R.id.blueDevices);
 
-        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             // Device does not support Bluetooth
         }
+
+
 
         On.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -68,22 +83,18 @@ public class Settings extends Fragment
             }
         });
 
-        Off.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        Off.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 // Turn On Bluetooth
                 Log.e("Settings Report", "Turning Off Bluetooth");
                 mBluetoothAdapter.disable();
-                Toast.makeText(getActivity().getApplicationContext(),"Turned off" ,
+                Toast.makeText(getActivity().getApplicationContext(), "Turned off",
                         Toast.LENGTH_LONG).show();
             }
         });
 
-        Visible.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        Visible.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Log.e("Settings Report", "Requesting visibility");
                 // Turn device visible - Bluetooth
                 Intent getVisible = new Intent(mBluetoothAdapter.
@@ -92,8 +103,7 @@ public class Settings extends Fragment
             }
         });
 
-        Scan.setOnClickListener(new View.OnClickListener()
-        {
+        Scan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Log.e("Settings Report", "Requesting bluetooth devices");
@@ -101,12 +111,10 @@ public class Settings extends Fragment
 
                 devicesList = new ArrayList<HashMap<String, String>>();
                 //ArrayList list = new ArrayList();
-                if (pairedDevices.size() > 0)
-                {
+                if (pairedDevices.size() > 0) {
                     HashMap<String, String> devices = new HashMap<String, String>();
                     // Loop through paired devices
-                    for (BluetoothDevice device : pairedDevices)
-                    {
+                    for (BluetoothDevice device : pairedDevices) {
                         devices.put(TAG_ID, device.getAddress());
                         devices.put(TAG_NAME, device.getName());
                         devicesList.add(devices);
@@ -114,28 +122,33 @@ public class Settings extends Fragment
                     }
 
 
-                            Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
+                    Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
                             Toast.LENGTH_SHORT).show();
 
                     //ArrayAdapter adapter = new ArrayAdapter
-                    BluAdapter adapter = new BluAdapter(getActivity(),devicesList);
+                    BluAdapter adapter = new BluAdapter(getActivity(), devicesList);
                     bluList.setAdapter(adapter);
 
-                    bluList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                    {
+                    bluList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView <?> parent, View view,
-                                                int position, long id)
-                        {
+                        public void onItemClick(AdapterView<?> parent, View view,
+                                                int position, long id) {
                             String map = (String) parent.getItemAtPosition(position).toString();
                             Log.e("BluList Report", "Clicked list item: " +
-                            position +" Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+                                    position + " Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
 
+                            try {
+                                openBlueDev(devicesList.get(position).get(TAG_ID).toString());
+                            }
+                            catch (IOException ex)
+                            {
+                                Log.e("BluList Report", " !!! Something went wrong - Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+                            }
 
                             //String item = (String) parent.getItemAtPosition(position);
-                            Log.e("Settings report","Requesting connection to device: "+ devicesList.get(position).get(TAG_NAME).toString());
+                            Log.e("Settings report", "Requesting connection to device: " + devicesList.get(position).get(TAG_NAME).toString());
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "Connecting to: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG)
+                                    "Connected: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG)
                                     .show();
                         }
                     });
@@ -145,5 +158,41 @@ public class Settings extends Fragment
 
         Log.e("Settings report","view created.");
         return view;
+    }
+
+    void openBlueDev(String uid) throws IOException
+    {
+        BluetoothSocket mmSocket = null;
+
+        //UUID uuid = UUID.fromString(uid);
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
+        // Set up a pointer to the remote node using it's address.
+        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
+        try {
+            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
+        }
+        catch (IOException e) {
+            // Qualcosa
+        }
+        // Cancel discovery because it will slow down the connection
+        mBluetoothAdapter.cancelDiscovery();
+
+        try
+        {
+            mmSocket.connect();
+            //out.append("\n...Connection established and data link opened...");
+        } catch (IOException e) {
+            try {
+                mmSocket.close();
+            } catch (IOException e2) {
+                //AertBox("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
+                Toast.makeText(getActivity().getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
+                        .show();
+            }
+        }
+        //mmSocket.connect();
+        mmOutputStream = mmSocket.getOutputStream();
+        mmInputStream = mmSocket.getInputStream();
     }
 }
