@@ -228,10 +228,70 @@
 											        android:text="@string/yawEx"
 								                    android:textIsSelectable="true"/>
 								    </LinearLayout>
-								    
+
+
+
 								</LinearLayout>
 
-                                <TextView
+                    <LinearLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:paddingBottom="4sp"
+                        android:paddingTop="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:gravity="center"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/takeOffButt"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:text="@string/takeOff"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/enablePidButt"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:text="@string/pid"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/landButt"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:text="@string/Land"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <TextView
                                     android:id="@+id/TextInfo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -259,14 +319,14 @@
                                     android:orientation="vertical"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="fill_parent"
                                     android:layout_height="wrap_content">
 
 
                                     <LinearLayout
                                         android:id="@+id/ScoreSection"
                                         android:orientation="vertical"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="fill_parent"
                                         android:layout_height="wrap_content">
 
                                         <TextView
@@ -288,118 +348,17 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textSize="16sp"
-                                            android:paddingBottom="4sp"
-                                            android:paddingTop="10sp"
+                                            android:paddingBottom="15dp"
+                                            android:paddingTop="10dp"
                                             android:text="@string/logEx"
                                             android:textColor="#000000"
                                             android:textIsSelectable="true"/>
 
                                     </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/GameSection"
-                                        android:orientation="vertical"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content">
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingTop="4sp"
-                                            android:text="@string/log"
-                                            android:textColor="#808080"
-                                            android:textSize="16sp" />
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
-                                            android:id="@+id/log2"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textSize="16sp"
-                                            android:paddingBottom="4sp"
-                                            android:paddingTop="10sp"
-                                            android:text="@string/logEx"
-                                            android:textColor="#000000"
-                                            android:textIsSelectable="true"/>
-
-
-                                    </LinearLayout>
-
-
-                                    <LinearLayout
-                                        android:id="@+id/FavPokSection"
-                                        android:orientation="vertical"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content">
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingTop="4sp"
-                                            android:text="@string/log"
-                                            android:textColor="#808080"
-                                            android:textSize="16sp" />
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
-                                            android:id="@+id/log3"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textSize="16sp"
-                                            android:paddingBottom="4sp"
-                                            android:paddingTop="10sp"
-                                            android:text="@string/logEx"
-                                            android:textColor="#000000"
-                                            android:textIsSelectable="true"/>
-                                        </LinearLayout>
 
                                 </LinearLayout>
 -->
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="13dp"
-                                    android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingTop="4sp"
-                                            android:text="@string/log"
-                                            android:textColor="#808080"
-                                            android:textSize="16sp" />
-
-                                        <TextView
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="10dp"
-                                            android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
-                                            android:id="@+id/log"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textSize="16sp"
-                                            android:paddingBottom="4sp"
-                                            android:paddingTop="10sp"
-                                            android:text="@string/logEx"
-                                            android:textColor="#000000"
-                                            android:textIsSelectable="true"/>
-
-                                </LinearLayout>
-
-
-                                    <LinearLayout android:id="@+id/luogoButtonLayout"
+                                <LinearLayout android:id="@+id/luogoButtonLayout"
                                         android:layout_width="fill_parent"
                                         android:layout_height="50dp"
                                         android:orientation="horizontal"

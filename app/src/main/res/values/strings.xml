@@ -29,6 +29,7 @@
     <string name="log">Last log</string>
     <string name="logEx">landing protocol completed</string>
     <string name="Info">Information</string>
+    <string name="Land">Land</string>
 
  <!-- Settings -->
 
@@ -36,6 +37,9 @@
     <string name="TurnOn">Turn On</string>
     <string name="visible">Visible</string>
     <string name="Scan">Scan</string>
+    <string name="toggle">Enable</string>
+    <string name="visibile">Visibility</string>
+    <string name="send">Send</string>
 
   <!-- Blu List -->
 
