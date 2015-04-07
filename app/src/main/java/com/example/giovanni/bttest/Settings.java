@@ -205,7 +205,6 @@ public class Settings extends Fragment
                     Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
                             Toast.LENGTH_SHORT).show();
 
-                    //ArrayAdapter adapter = new ArrayAdapter
                     BluAdapter adapter = new BluAdapter(getActivity(), devicesList);
                     bluList.setAdapter(adapter);
 
