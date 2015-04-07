@@ -1,5 +1,6 @@
 package com.example.giovanni.bttest;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -72,21 +73,27 @@ public class Settings extends Fragment
         On.setVisibility(view.GONE);
         Off.setVisibility(view.GONE);
 
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBluetoothAdapter == null) {
-            // Device does not support Bluetooth
-        }
-
+        final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
 
         land.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.e("Settings Report", "Click land");
-                String msg = "L";
-                msg += "\n";
-                try {
-                    mmOutputStream.write(msg.getBytes());
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (blue.isAssociated()) {
+                    Log.e("Settings Report", "Click land");
+                    String msg = "L";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
                 }
             }
 
@@ -94,13 +101,21 @@ public class Settings extends Fragment
 
         pid.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.e("Settings Report", "Click pid");
-                String msg = "p";
-                msg += "\n";
-                try {
-                    mmOutputStream.write(msg.getBytes());
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (blue.isAssociated()) {
+                    Log.e("Settings Report", "Click pid");
+                    String msg = "p";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
                 }
             }
 
@@ -108,13 +123,22 @@ public class Settings extends Fragment
 
         take.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.e("Settings Report", "Click take");
-                String msg = "a";
-                msg += "\n";
-                try {
-                    mmOutputStream.write(msg.getBytes());
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (blue.isAssociated())
+                {
+                    Log.e("Settings Report", "Click take");
+                    String msg = "a";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                    }
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
                 }
             }
 
@@ -124,160 +148,29 @@ public class Settings extends Fragment
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                 {
-                    Log.e("Settings Report", "Turning On Bluetooth");
-                    // Turn On Bluetooth
-                    if (!mBluetoothAdapter.isEnabled())
-                    {
-                        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                        startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-                        Toast.makeText(getActivity().getApplicationContext(), "Turned on"
-                                , Toast.LENGTH_LONG).show();
-                    } else
-                    {
-                        Toast.makeText(getActivity().getApplicationContext(), "Already on",
-                                Toast.LENGTH_LONG).show();
-                    }
+                    blue.turnOn();
                 } else
                 {
-                    Log.e("Settings Report", "Turning Off Bluetooth");
-                    mBluetoothAdapter.disable();
-                    Toast.makeText(getActivity().getApplicationContext(), "Turned off",
-                            Toast.LENGTH_LONG).show();
+                    blue.turnOff();
                 }
             }
         });
 
-        On.setOnClickListener(new View.OnClickListener() {
+        Visible.setOnClickListener(new View.OnClickListener()
+        {
             public void onClick(View v) {
-                Log.e("Settings Report", "Turning On Bluetooth");
-                // Turn On Bluetooth
-                if (!mBluetoothAdapter.isEnabled()) {
-                    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-                    Toast.makeText(getActivity().getApplicationContext(), "Turned on"
-                            , Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "Already on",
-                            Toast.LENGTH_LONG).show();
-                }
+                blue.getVisibility();
             }
         });
 
-        Off.setOnClickListener(new View.OnClickListener() {
+        Scan.setOnClickListener(new View.OnClickListener()
+        {
             public void onClick(View v) {
-                // Turn On Bluetooth
-                Log.e("Settings Report", "Turning Off Bluetooth");
-                mBluetoothAdapter.disable();
-                Toast.makeText(getActivity().getApplicationContext(), "Turned off",
-                        Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Visible.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.e("Settings Report", "Requesting visibility");
-                // Turn device visible - Bluetooth
-                Intent getVisible = new Intent(mBluetoothAdapter.
-                        ACTION_REQUEST_DISCOVERABLE);
-                startActivityForResult(getVisible, 0);
-            }
-        });
-
-        Scan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                Log.e("Settings Report", "Requesting bluetooth devices");
-                Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-
-                devicesList = new ArrayList<HashMap<String, String>>();
-                //ArrayList list = new ArrayList();
-                if (pairedDevices.size() > 0) {
-                    HashMap<String, String> devices = new HashMap<String, String>();
-                    // Loop through paired devices
-                    for (BluetoothDevice device : pairedDevices) {
-                        devices.put(TAG_ID, device.getAddress());
-                        devices.put(TAG_NAME, device.getName());
-                        devicesList.add(devices);
-                        Log.e("Settings Report", "Added: " + device.getName() + "with ID: " + device.getName());
-                    }
-
-
-                    Toast.makeText(getActivity().getApplicationContext(), "Showing Paired Devices",
-                            Toast.LENGTH_SHORT).show();
-
-                    BluAdapter adapter = new BluAdapter(getActivity(), devicesList);
-                    bluList.setAdapter(adapter);
-
-                    bluList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view,
-                                                int position, long id) {
-                            String map = (String) parent.getItemAtPosition(position).toString();
-                            Log.e("BluList Report", "Clicked list item: " +
-                                    position + " Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
-
-                            try {
-                                openBlueDev(devicesList.get(position).get(TAG_ID).toString());
-                            }
-                            catch (IOException ex)
-                            {
-                                Log.e("BluList Report", " !!! Something went wrong - Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
-                            }
-
-                            //String item = (String) parent.getItemAtPosition(position);
-                            Log.e("Settings report", "Requesting connection to device: " + devicesList.get(position).get(TAG_NAME).toString());
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Connected: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    });
-                }
+                devicesList = blue.getDevices(bluList);
             }
         });
 
         Log.e("Settings report","view created.");
         return view;
-    }
-
-    void openBlueDev(String uid) throws IOException
-    {
-        BluetoothSocket mmSocket = null;
-
-        //UUID uuid = UUID.fromString(uid);
-        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
-
-        // Set up a pointer to the remote node using it's address.
-        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
-        try {
-            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
-        }
-        catch (IOException e) {
-            // Qualcosa
-        }
-        // Cancel discovery because it will slow down the connection
-        mBluetoothAdapter.cancelDiscovery();
-
-        try
-        {
-            mmSocket.connect();
-            //out.append("\n...Connection established and data link opened...");
-        } catch (IOException e) {
-            try {
-                mmSocket.close();
-            } catch (IOException e2) {
-                //AertBox("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
-                Toast.makeText(getActivity().getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
-                        .show();
-            }
-        }
-        //mmSocket.connect();
-        mmInputStream = mmSocket.getInputStream();
-
-        try {
-            mmOutputStream = mmSocket.getOutputStream();
-        } catch (IOException e) {
-
-            Log.e("Settings report","Output stream creation failed:" + e.getMessage() + ".");
-        }
     }
 }

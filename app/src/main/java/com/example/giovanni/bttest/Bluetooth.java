@@ -7,6 +7,9 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -37,12 +40,14 @@ public class Bluetooth {
     public static BluetoothSocket mmSocket;
     public static OutputStream mmOutputStream;
     public static InputStream mmInputStream;
+    public static boolean associated = false;
 
     public static ArrayList<HashMap<String, String>> devicesList;
 
     private static Context ctx;
 
-    public Bluetooth(Context context,Activity acti){
+    public Bluetooth(Context context,Activity acti)
+    {
         super();
         ctx=context;
         this.activity = acti;
@@ -54,7 +59,7 @@ public class Bluetooth {
         }
     }
 
-    public static int turnOn()
+    public int turnOn()
     {
         int result;
         Log.e("Settings Report", "Turning On Bluetooth");
@@ -75,56 +80,13 @@ public class Bluetooth {
         return result;
     }
 
-    public static int connect(Context context,String uid)
+    public void turnOff()
     {
-        int result = 0;
-
-        mmSocket = null;
-
-        //UUID uuid = UUID.fromString(uid);
-        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
-
-        // Set up a pointer to the remote node using it's address.
-        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
-        try {
-            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
-        }
-        catch (IOException e) {
-            // Qualcosa
-        }
-        // Cancel discovery because it will slow down the connection
-        mBluetoothAdapter.cancelDiscovery();
-
-        try
-        {
-            mmSocket.connect();
-            //out.append("\n...Connection established and data link opened...");
-        } catch (IOException e) {
-            try {
-                mmSocket.close();
-            } catch (IOException e2) {
-                //AertBox("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
-                Toast.makeText(activity, "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
-                        .show();
-            }
-        }
-        //mmSocket.connect();
-        try {
-            mmInputStream = mmSocket.getInputStream();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            mmOutputStream = mmSocket.getOutputStream();
-        } catch (IOException e) {
-
-            Log.e("Settings report","Output stream creation failed:" + e.getMessage() + ".");
-        }
-
-
-
-        return result;
+        Log.e("Bluetooth Class Report", "Turning Off Bluetooth");
+        mBluetoothAdapter.disable();
+        Toast.makeText(activity.getApplicationContext(), "Turned off",
+                Toast.LENGTH_LONG).show();
+        associated = false;
     }
 
     public static int getVisibility()
@@ -137,8 +99,8 @@ public class Bluetooth {
         return 1;
     }
 
-    public static ArrayList<HashMap<String, String>> getDevices() {
-        Log.e("Settings Report", "Requesting bluetooth devices");
+    public static ArrayList<HashMap<String, String>> getDevices(ListView list) {
+        Log.e("Bluetooth Class Report", "Requesting bluetooth devices");
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
         devicesList = new ArrayList<HashMap<String, String>>();
@@ -154,6 +116,98 @@ public class Bluetooth {
             }
 
         }
+        BluAdapter adapter = new BluAdapter(activity, devicesList);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String map = (String) parent.getItemAtPosition(position).toString();
+                Log.e("Bluetooth Class Report", "Clicked list item: " +
+                        position + " Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+
+                try {
+                    connect(devicesList.get(position).get(TAG_ID).toString());
+                }
+                catch (IOException ex)
+                {
+                    Log.e("Bluetooth Class Report", " !!! Something went wrong - Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+                }
+
+                //String item = (String) parent.getItemAtPosition(position);
+                Log.e("Bluetooth Class Report", "Requesting connection to device: " + devicesList.get(position).get(TAG_NAME).toString());
+                Toast.makeText(ctx,"Connected: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG).show();
+            }
+        });
         return devicesList;
+    }
+
+    public static void connect(String uid) throws IOException
+    {
+        BluetoothSocket mmSocket = null;
+
+        //UUID uuid = UUID.fromString(uid);
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
+        // Set up a pointer to the remote node using it's address.
+        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
+        try {
+            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
+        }
+        catch (IOException e) {
+            // Qualcosa
+            associated = false;
+        }
+        // Cancel discovery because it will slow down the connection
+        mBluetoothAdapter.cancelDiscovery();
+
+        try
+        {
+            mmSocket.connect();
+            associated = true;
+            //out.append("\n...Connection established and data link opened...");
+        } catch (IOException e) {
+            try {
+                mmSocket.close();
+                associated = false;
+            } catch (IOException e2) {
+                //AertBox("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
+                Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
+                        .show();
+                associated = false;
+            }
+        }
+        try {
+            mmInputStream = mmSocket.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            mmOutputStream = mmSocket.getOutputStream();
+        } catch (IOException e) {
+
+            Log.e("Settings report","Output stream creation failed:" + e.getMessage() + ".");
+        }
+    }
+
+    public boolean isAssociated()
+    {
+        if (associated)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean blueWrite(String s)
+    {
+        try {
+            mmOutputStream.write(s.getBytes());
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
