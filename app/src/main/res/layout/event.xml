@@ -252,10 +252,10 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/takeOffButt"
+                                android:id="@+id/testConn"
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:text="@string/takeOff"/>
+                                android:text="@string/testConnection"/>
 
                         </LinearLayout>
 
@@ -281,10 +281,10 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/landButt"
+                                android:id="@+id/statusButt"
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:text="@string/Land"/>
+                                android:text="@string/status"/>
 
                         </LinearLayout>
 

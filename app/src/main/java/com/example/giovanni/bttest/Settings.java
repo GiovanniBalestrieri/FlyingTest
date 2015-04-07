@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,7 +56,8 @@ public class Settings extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.settings, container, false);
         On = (Button) view.findViewById(R.id.turnOnBlu);
@@ -75,7 +77,8 @@ public class Settings extends Fragment
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
 
-        land.setOnClickListener(new View.OnClickListener() {
+        land.setOnClickListener(new View.OnClickListener()
+        {
             public void onClick(View v) {
                 if (blue.isAssociated()) {
                     Log.e("Settings Report", "Click land");

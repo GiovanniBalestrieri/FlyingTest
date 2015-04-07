@@ -30,6 +30,8 @@
     <string name="logEx">landing protocol completed</string>
     <string name="Info">Information</string>
     <string name="Land">Land</string>
+    <string name="testConnection">Test</string>
+    <string name="status">Status</string>
 
  <!-- Settings -->
 
