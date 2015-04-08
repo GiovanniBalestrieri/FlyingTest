@@ -97,7 +97,7 @@ public class CPanel extends Fragment
                                                     String v1 = "";
                                                     String v2 = "";
                                                     String v3 = "";
-                                                    if(values != null && values.length == 3) {
+                                                    if(values != null && values.length == 4) {
                                                         v1 = values[0];
                                                         v2 = values[1];
                                                         v3 = values[2];
@@ -109,17 +109,17 @@ public class CPanel extends Fragment
                                                 else if (first=='c')
                                                 {
                                                     // Commands
-                                                    String values[] = data.replace("c,","").split(",");
+                                                    String values[] = data.replace("c","").split(",");
                                                     String v1 = "";
-                                                    if(values != null && values.length == 1) {
-                                                        v1 = values[0];
-                                                        if (v1=="p")
+                                                    if(values != null && values.length == 3) {
+                                                        v1 =  values[1];
+                                                        if (v1.equals("p"))
                                                         {
-                                                            warning.getResources().getColor(R.color.green);
+                                                            warning.setTextColor(getResources().getColor(R.color.green));
                                                             warning.setText("Pid Enabled");
                                                         }else
                                                         {
-                                                            warning.getResources().getColor(R.color.red);
+                                                            warning.setTextColor(getResources().getColor(R.color.red));
                                                             warning.setText("Pid Disabled");
                                                         }
                                                     }
