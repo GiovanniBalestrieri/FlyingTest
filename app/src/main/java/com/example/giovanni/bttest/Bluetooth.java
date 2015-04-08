@@ -46,7 +46,7 @@ public class Bluetooth {
     public String data = "";
 
 
-    static final Handler handler = new Handler();
+    static Handler handler;
     static final byte delimiter = 10;
 
     static public byte[] readBuffer;
@@ -168,7 +168,7 @@ public class Bluetooth {
         try {
             mmSocket.connect();
             associated = true;
-            beginListenForData();
+            //beginListenForData();
             //out.append("\n...Connection established and data link opened...");
         } catch (IOException e) {
             try {
@@ -211,10 +211,15 @@ public class Bluetooth {
         }
     }
 
+    public InputStream getInput()
+    {
+        return mmInputStream;
+    }
+
     public static void beginListenForData()
     {
         final byte delimiter = 10; //This is the ASCII code for a newline character
-
+        handler = new Handler();
         stopWorker = false;
         readBufferPosition = 0;
         readBuffer = new byte[1024];
@@ -226,8 +231,6 @@ public class Bluetooth {
                 {
                     try
                     {
-                        //blue.blueRead();
-
                         int bytesAvailable = mmInputStream.available();
                         if(bytesAvailable > 0)
                         {

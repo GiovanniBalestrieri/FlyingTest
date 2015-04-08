@@ -56,6 +56,7 @@
 									            android:id="@+id/takeOff"
 									            android:layout_width="wrap_content"
 									            android:layout_height="wrap_content"
+                                                android:clickable="true"
 									            android:layout_weight="1"
 									            android:gravity="center" >
 						                       		
@@ -83,6 +84,7 @@
 									            android:layout_height="wrap_content"
 									            android:layout_weight="1"
 									            android:gravity="center"
+                                                android:clickable="true"
 									            android:paddingRight="15dp" >
 
 										           <TextView
@@ -116,6 +118,7 @@
 			                   android:showDividers="none" >
 
 			                   <TextView
+                                   android:id="@+id/state"
 			                       android:layout_width="wrap_content"
 			                       android:layout_height="wrap_content"
 			                       android:layout_gravity="center"
@@ -191,7 +194,7 @@
 										    <TextView
 							                    android:layout_marginLeft="10dp"
 								            	android:layout_marginRight="10dp"
-							                    android:id="@+id/stackEventPage"
+							                    android:id="@+id/pitchTxt"
 							                    android:layout_width="wrap_content"
 							                    android:layout_height="wrap_content"
 							                    android:paddingBottom="4sp"
@@ -340,11 +343,11 @@
                                             android:textSize="16sp" />
 
                                         <TextView
+                                            android:id="@+id/log1"
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginRight="10dp"
                                             android:paddingLeft="5dp"
                                             android:paddingRight="5dp"
-                                            android:id="@+id/log1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textSize="16sp"
