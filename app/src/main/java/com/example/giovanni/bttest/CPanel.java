@@ -68,16 +68,23 @@ public class CPanel extends Fragment
         readBufferPosition = 0;
         readBuffer = new byte[1024];
 
-        if (blue.isAssociated()) {
-            workerThread = new Thread(new Runnable() {
-                public void run() {
-                    while (!Thread.currentThread().isInterrupted() && !stopWorker) {
-                        try {
+        if (blue.isAssociated())
+        {
+            workerThread = new Thread(new Runnable()
+            {
+                public void run()
+                {
+                    while (!Thread.currentThread().isInterrupted() && !stopWorker)
+                    {
+                        try
+                        {
                             int bytesAvailable = inputStream.available();
-                            if (bytesAvailable > 0) {
+                            if (bytesAvailable > 0)
+                            {
                                 byte[] packetBytes = new byte[bytesAvailable];
                                 inputStream.read(packetBytes);
-                                for (int i = 0; i < bytesAvailable; i++) {
+                                for (int i = 0; i < bytesAvailable; i++)
+                                {
                                     byte b = packetBytes[i];
                                     if (b == delimiter) {
                                         byte[] encodedBytes = new byte[readBufferPosition];
@@ -88,8 +95,8 @@ public class CPanel extends Fragment
                                         handler.post(new Runnable() {
                                             public void run() {
                                                 log.setText(data);
-                                                Toast.makeText(getActivity().getApplicationContext(), data, Toast.LENGTH_LONG)
-                                                        .show();
+                                                //Toast.makeText(getActivity().getApplicationContext(), data, Toast.LENGTH_LONG)
+                                                //        .show();
                                                 char first = data.charAt(0);
                                                 if (first=='o') {
                                                     // Orientation status

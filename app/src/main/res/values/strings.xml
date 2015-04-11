@@ -48,6 +48,19 @@
     <string name="bluEx">BluDev</string>
     <string name="bluIDEx">Id Device</string>
 
+    <!-- Control -->
+
+
+    <string name="ARoll">Angular Roll</string>
+    <string name="APitch">Angular Pitch</string>
+    <string name="AYaw">Angular Yaw</string>
+    <string name="WRoll">Omega Roll</string>
+    <string name="WPitch">Omega Pitch</string>
+    <string name="WYaw">Omega Yaw</string>
+    <string name="Kp">Kp</string>
+    <string name="Ki">Ki</string>
+    <string name="Kd">Kd</string>
+
     
 
 </resources>

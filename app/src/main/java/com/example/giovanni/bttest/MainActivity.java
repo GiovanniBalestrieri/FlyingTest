@@ -53,6 +53,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
 
     CPanel cPanel = new CPanel();
     Settings settings = new Settings();
+    Control control = new Control();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -107,9 +108,25 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 break;
             case 1:
 
-                CPanel secondFragment = new CPanel();
-                transaction.replace(R.id.container, secondFragment);
-                transaction.addToBackStack(null);
+                if (cPanel.isAdded())
+                {
+                    transaction.hide(cPanel);
+                }
+
+
+                if (settings.isAdded())
+                {
+                    transaction.hide(settings);
+                }
+                /*
+                if (settings.isAdded())
+                {
+                    // if the fragment is already in container
+                    transaction.show(settings);
+                } else
+                */
+                // fragment needs to be added to frame container
+                transaction.replace(R.id.container, control, "settings");
                 transaction.commit();
                 break;
 
