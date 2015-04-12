@@ -50,7 +50,6 @@
 
     <!-- Control -->
 
-
     <string name="ARoll">Angular Roll</string>
     <string name="APitch">Angular Pitch</string>
     <string name="AYaw">Angular Yaw</string>
@@ -61,6 +60,13 @@
     <string name="Ki">Ki</string>
     <string name="Kd">Kd</string>
 
+    <!-- NoConnection -->
+
+    <string name="welcome">Welcome!</string>
+    <string name="noconn">No Internet connection detected</string>
+    <string name="connectionMess">Check your settings</string>
+    <string name="houston">Call Houston</string>
+    <string name="check">Check</string>
     
 
 </resources>

@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +28,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.giovanni.bttest.Utils.NetworkUtil;
 
 import java.util.Set;
 
@@ -54,6 +57,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
     CPanel cPanel = new CPanel();
     Settings settings = new Settings();
     Control control = new Control();
+    NetworkUtil net;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,32 +65,44 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        if (NetworkUtil.getConnectivityStatus(this)==0)
+        {
+            Intent conn = new Intent(getApplicationContext(), NoConnection.class);
+            Log.e("Main -> Connection", "No internet connection. Have a good one!");
+            conn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(conn);
+            finish();
+        }
+        else
+        {
 
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+            mNavigationDrawerFragment = (NavigationDrawerFragment)
+                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
+            mTitle = getTitle();
 
-        if (findViewById(R.id.container) != null) {
+            // Set up the drawer.
+            mNavigationDrawerFragment.setUp(
+                    R.id.navigation_drawer,
+                    (DrawerLayout) findViewById(R.id.drawer_layout));
 
-            // However, if we're being restored from a previous state,
-            // then we don't need to do anything and should return or else
-            // we could end up with overlapping fragments.
-            if (savedInstanceState != null) {
-                return;
+            if (findViewById(R.id.container) != null) {
+
+                // However, if we're being restored from a previous state,
+                // then we don't need to do anything and should return or else
+                // we could end up with overlapping fragments.
+                if (savedInstanceState != null) {
+                    return;
+                }
+
+
+                // In case this activity was started with special instructions from an
+                // Intent, pass the Intent's extras to the fragment as arguments
+                //cPanel.setArguments(getIntent().getExtras());
+
+                // Add the fragment to the 'fragment_container' FrameLayout
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, cPanel).commit();
             }
-
-
-            // In case this activity was started with special instructions from an
-            // Intent, pass the Intent's extras to the fragment as arguments
-            //cPanel.setArguments(getIntent().getExtras());
-
-            // Add the fragment to the 'fragment_container' FrameLayout
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, cPanel).commit();
         }
 
     }
