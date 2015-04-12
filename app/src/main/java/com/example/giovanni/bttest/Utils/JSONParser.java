@@ -42,7 +42,6 @@ public class JSONParser
 
         // Making HTTP request
         try {
-
             // check for request method
             if(method == "POST"){
                 // request method is POST
@@ -98,9 +97,7 @@ public class JSONParser
 
         // return JSON String
         return jObj;
-
     }
-
 
     public JSONObject getJSONFromUrl(String url, List<NameValuePair> params)
     {

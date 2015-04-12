@@ -3,6 +3,7 @@ package com.example.giovanni.bttest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.giovanni.bttest.Libraries.sendStartTask;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +25,7 @@ public class CPanel extends Fragment
 {
     LinearLayout takeOff;
     LinearLayout land;
+    LinearLayout map;
     Button status;
     Button test;
     Button pid;
@@ -42,8 +46,8 @@ public class CPanel extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+                             Bundle savedInstanceState)
+    {
         View v = inflater.inflate(R.layout.event, container, false);
 
         takeOff = (LinearLayout) v.findViewById(R.id.takeOff);
@@ -57,6 +61,7 @@ public class CPanel extends Fragment
         yaw = (TextView) v.findViewById(R.id.yawTxt);
         state = (TextView) v.findViewById(R.id.state);
         warning = (TextView) v.findViewById(R.id.warning);
+        map = (LinearLayout) v.findViewById(R.id.luogoButtonLayout);
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
 
@@ -276,6 +281,17 @@ public class CPanel extends Fragment
             }
         });
 
+        map.setOnClickListener(new View.OnClickListener()
+        {
+               public void onClick(View v)
+               {
+                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                   Exploration firstFragment = new Exploration();
+                   transaction.addToBackStack("OK");
+                   transaction.replace(R.id.container, firstFragment);
+                   transaction.commit();
+               }
+       });
 
         Log.e("Cpanel report", "view created.");
         return v;
