@@ -28,19 +28,15 @@
 		                        android:layout_height="wrap_content"
 		                        android:background="#000000"
 		                        android:gravity="center">
-			                   
 
-				                
 						                <ImageView
 						                    android:id="@+id/Picture"
 						                    android:layout_width="wrap_content"
 						                    android:layout_height="wrap_content"
 						                    android:adjustViewBounds="true"
 						                    android:minHeight="200dp"
-						                    android:src="@drawable/wall" />
-						                
-		 					
-			               
+						                    android:src="@drawable/home" />
+
 			               				<LinearLayout
 			               				    android:id="@+id/takeOffLand"
 									        android:layout_width="match_parent"
@@ -122,7 +118,7 @@
 			                       android:layout_width="wrap_content"
 			                       android:layout_height="wrap_content"
 			                       android:layout_gravity="center"
-			                       android:text="Landed"
+			                       android:text="Robotics guide"
 			                       android:textColor="#808080"
 			                       android:textSize="20sp"
 			                       android:textStyle="bold" />
@@ -132,109 +128,12 @@
 			                       android:layout_width="wrap_content"
 			                       android:layout_height="wrap_content"
 			                       android:layout_gravity="center"
-			                       android:text="@string/pidEx"
-                                   android:textColor="@color/red"
+			                       android:text="Safe"
+                                   android:textColor="@color/green"
                                    android:paddingTop="10dp"
 			                       android:textIsSelectable="true"
-			                       android:textSize="20sp" />
+			                       android:textSize="25sp" />
 			               </LinearLayout>
-		                		
-                		        <LinearLayout
-                		            android:id="@+id/infosEventPage"
-                		            android:layout_marginLeft="10dp"
-					            	android:layout_marginRight="10dp"
-                		            android:layout_width="fill_parent"
-                		            android:layout_height="fill_parent"
-                		            android:baselineAligned="false"
-				                    android:paddingBottom="4sp"
-				                    android:paddingTop="15dp"
-                		            android:orientation="horizontal"
-                		            android:weightSum="3" >
-
-                		            <LinearLayout
-				                        android:layout_width="fill_parent"
-										android:gravity="center"				                        
-										android:layout_height="fill_parent"
-				                        android:layout_weight="1"
-										android:orientation="vertical">
-										    <TextView 
-										        android:id="@+id/rollTitle"
-										        android:layout_width="wrap_content" 
-										        android:layout_height="wrap_content"
-										        android:textColor="#808080"
-				                    			android:textSize="20sp"
-										        android:text="@string/roll"/>
-										    <TextView
-							                    android:layout_marginLeft="10dp"
-								            	android:layout_marginRight="10dp"
-							                    android:id="@+id/rollTxt"
-							                    android:layout_width="wrap_content"
-							                    android:layout_height="wrap_content"
-							                    android:text="@string/rollEx"
-							                    android:paddingBottom="4sp"
-								                android:paddingTop="8sp"
-							                    android:textColor="#000000"
-							                    android:textSize="18sp"
-							                    android:textIsSelectable="true"/>
-										    
-									</LinearLayout>
-									<LinearLayout
-				                        android:layout_width="fill_parent"
-				                        android:layout_height="fill_parent"
-										android:gravity="center"			
-				                        android:layout_weight="1"
-										android:orientation="vertical">
-										    <TextView
-										        android:id="@+id/pitchTitle"
-										        android:layout_width="wrap_content"
-										        android:layout_height="wrap_content"
-										        android:textColor="#808080"
-				                    			android:textSize="20sp"
-										        android:text="@string/pitch" />
-										    <TextView
-							                    android:layout_marginLeft="10dp"
-								            	android:layout_marginRight="10dp"
-							                    android:id="@+id/pitchTxt"
-							                    android:layout_width="wrap_content"
-							                    android:layout_height="wrap_content"
-							                    android:paddingBottom="4sp"
-							                    android:textSize="18sp"
-							                    android:text="@string/pitchEx"
-								                android:paddingTop="8sp"
-							                    android:textColor="#000000"
-							                    android:textIsSelectable="true"/>
-								    </LinearLayout>
-								    
-									<LinearLayout
-				                        android:layout_width="fill_parent"
-				                        android:layout_height="fill_parent"
-				                        android:layout_weight="1"
-										android:gravity="center"
-										android:orientation="vertical">
-											    <TextView  
-											        android:id="@+id/yawTitle"
-											        android:layout_width="wrap_content"
-											        android:layout_height="wrap_content"
-											        android:textColor="#808080"
-					                    			android:textSize="20sp"
-											        android:text="@string/yaw"/>
-											    <TextView
-								                    android:layout_marginLeft="10dp"
-									            	android:layout_marginRight="10dp"
-								                    android:id="@+id/yawTxt"
-								                    android:layout_width="wrap_content"
-								                    android:layout_height="wrap_content"
-								                    android:paddingBottom="4sp"
-								                    android:paddingTop="8sp"
-							                    	android:textSize="18sp"
-								                    android:textColor="#000000"
-											        android:text="@string/yawEx"
-								                    android:textIsSelectable="true"/>
-								    </LinearLayout>
-
-
-
-								</LinearLayout>
 
                     <LinearLayout
                         android:layout_marginLeft="10dp"

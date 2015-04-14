@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">bttest</string>
+    <string name="app_name">Tenzo</string>
 
+    <string name="title_section0">Home</string>
     <string name="title_section1">CPanel</string>
     <string name="title_section2">Control</string>
     <string name="title_section3">Settings</string>

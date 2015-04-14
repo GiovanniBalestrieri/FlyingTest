@@ -1,5 +1,6 @@
 package com.example.giovanni.bttest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.giovanni.bttest.Libraries.sendStartTask;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,6 +46,7 @@ public class CPanel extends Fragment
     static public boolean stopWorker;
 
     InputStream inputStream;
+    private GoogleMap mMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -281,20 +285,48 @@ public class CPanel extends Fragment
             }
         });
 
+        /*
         map.setOnClickListener(new View.OnClickListener()
         {
-               public void onClick(View v)
-               {
-                   FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                   Exploration firstFragment = new Exploration();
-                   transaction.addToBackStack("OK");
-                   transaction.replace(R.id.container, firstFragment);
-                   transaction.commit();
-               }
-       });
+            public void onClick(View v)
+            {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Exploration firstFragment = new Exploration();
+                transaction.addToBackStack("OK");
+                transaction.replace(R.id.container, firstFragment);
+                transaction.commit();
+            }
+        });
+        */
+        map.setOnClickListener(new View.OnClickListener()
+    {
+        public void onClick(View v)
+        {
+            Intent map = new Intent(getActivity().getApplicationContext(), RoverPosition.class);
+            //map.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(map);
+        }
+    });
 
-        Log.e("Cpanel report", "view created.");
-        return v;
+
+
+    Log.e("Cpanel report", "view created.");
+    return v;
+
     }
+    private void setUpMapIfNeeded()
+    {
+        // Do a null check to confirm that we have not already instantiated the map.
+        if (mMap == null)
+        {
+            mMap = ((MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map)).getMap();
+            // Check if we were successful in obtaining the map.
+            if (mMap != null)
+            {
+
+            }
+        }
+    }
+
 
 }
