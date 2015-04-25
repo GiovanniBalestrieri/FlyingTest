@@ -152,6 +152,36 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true">
 
+                                    <!-- Inserisci toggle button -->
+
+                                </LinearLayout>
+
+
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dip"
+                                android:background="#bebebe"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginBottom="6dp"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <!-- Rendi tutto a sx e resto a estrema dx -->
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left">
+
                                     <Button
                                         android:id="@+id/RRoll"
                                         android:layout_width="wrap_content"
@@ -165,10 +195,15 @@
                                         android:textColor="#000000"
                                         android:textSize="15sp"/>
 
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right">
 
                                     <Button
-                                        android:id="@+id/SRoll"
-                                        android:layout_width="wrap_content"
+                                        android:id="@+id/SRoll"                               android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
                                         android:paddingBottom="3sp"
@@ -180,17 +215,7 @@
 
                                 </LinearLayout>
 
-                            </RelativeLayout>
-
-                            <View
-                                android:layout_width="fill_parent"
-                                android:layout_height="1dip"
-                                android:background="#bebebe"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_marginTop="1dp"
-                                android:layout_marginBottom="6dp"
-                                />
+                            </LinearLayout>
 		                		
                 		        <LinearLayout
                 		            android:layout_marginLeft="10dp"
