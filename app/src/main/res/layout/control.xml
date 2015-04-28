@@ -65,9 +65,9 @@
 			                </LinearLayout>
 			                
 					    </LinearLayout>
-					    
 
-                	
+
+
 
 						
 			                <View
@@ -133,29 +133,26 @@
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:paddingTop="25sp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="left"
                                     android:paddingBottom="3sp"
-                                    android:paddingTop="25sp"
                                     android:paddingLeft="10sp"
                                     android:text="@string/ARoll"
                                     android:textColor="#000000"
-                                    android:textSize="15sp"
+                                    android:textSize="18sp"
                                     android:layout_alignParentLeft="true"/>
 
-                                <LinearLayout
+                                <Switch
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true">
-
-                                    <!-- Inserisci toggle button -->
-
-                                </LinearLayout>
-
+                                    android:layout_gravity="bottom"
+                                    android:id="@+id/switchARoll"
+                                    android:layout_alignParentRight="true" />
 
 
                             </RelativeLayout>
@@ -170,52 +167,26 @@
                                 android:layout_marginBottom="6dp"
                                 />
 
-                            <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <!-- Rendi tutto a sx e resto a estrema dx -->
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="left">
+                                <RelativeLayout
+                                    android:id="@+id/relativeLayout1"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content">
 
                                     <Button
-                                        android:id="@+id/RRoll"
+                                        android:id="@+id/button1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:layout_marginRight="30dp"
-                                        android:paddingBottom="3sp"
-                                        android:paddingTop="10sp"
-                                        android:paddingRight="10sp"
-                                        android:text="R"
-                                        android:textColor="#000000"
-                                        android:textSize="15sp"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="right">
+                                        android:text="@string/Receive"
+                                        android:layout_alignParentLeft="true" />
 
                                     <Button
-                                        android:id="@+id/SRoll"                               android:layout_width="wrap_content"
+                                        android:id="@+id/button2"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:paddingBottom="3sp"
-                                        android:paddingTop="10sp"
-                                        android:paddingRight="10sp"
-                                        android:text="S"
-                                        android:textColor="#000000"
-                                        android:textSize="15sp" />
+                                        android:text="@string/Send"
+                                        android:layout_alignParentRight="true"/>
 
-                                </LinearLayout>
-
-                            </LinearLayout>
+                                </RelativeLayout>
 		                		
                 		        <LinearLayout
                 		            android:layout_marginLeft="10dp"
@@ -317,7 +288,7 @@
 								                    android:textIsSelectable="true"/>
 
 								    </LinearLayout>
-								    
+
 								</LinearLayout>
 
                     <LinearLayout
@@ -393,52 +364,27 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingTop="25sp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:paddingBottom="3sp"
-                            android:paddingTop="25sp"
                             android:paddingLeft="10sp"
                             android:text="@string/APitch"
                             android:textColor="#000000"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:layout_alignParentLeft="true"/>
 
-                        <LinearLayout
+
+                        <Switch
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true">
-
-                            <Button
-                                android:id="@+id/RPitch"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_marginRight="30dp"
-                                android:paddingBottom="3sp"
-                                android:paddingTop="10sp"
-                                android:paddingRight="10sp"
-                                android:text="R"
-                                android:textColor="#000000"
-                                android:textSize="15sp"/>
-
-
-                            <Button
-                                android:id="@+id/SPitch"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:paddingBottom="3sp"
-                                android:paddingTop="10sp"
-                                android:paddingRight="10sp"
-                                android:text="S"
-                                android:textColor="#000000"
-                                android:textSize="15sp" />
-
-                        </LinearLayout>
+                            android:layout_gravity="bottom"
+                            android:id="@+id/switchAPitch"
+                            android:layout_alignParentRight="true" />
 
                     </RelativeLayout>
 
@@ -451,6 +397,27 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="6dp"
                         />
+
+                    <RelativeLayout
+                        android:id="@+id/APSR"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/APReceive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Receive"
+                            android:layout_alignParentLeft="true" />
+
+                        <Button
+                            android:id="@+id/APSend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Send"
+                            android:layout_alignParentRight="true"/>
+
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_marginLeft="10dp"
@@ -638,7 +605,7 @@
                             android:paddingLeft="10sp"
                             android:text="@string/AYaw"
                             android:textColor="#000000"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             android:layout_alignParentLeft="true"/>
 
 

@@ -60,6 +60,8 @@
     <string name="Kp">Kp</string>
     <string name="Ki">Ki</string>
     <string name="Kd">Kd</string>
+    <string name="Receive">Receive</string>
+    <string name="Send">Send</string>
 
     <!-- NoConnection -->
 
