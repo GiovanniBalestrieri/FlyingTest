@@ -54,10 +54,15 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
      */
     private CharSequence mTitle;
 
-    CPanel cPanel = new CPanel();
-    Settings settings = new Settings();
-    Control control = new Control();
+    private CPanel cPanel;
+    private Settings settings;
+    private Control control;
     NetworkUtil net;
+
+    public MainActivity() {
+        settings = new Settings();
+        control = new Control();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -75,7 +80,6 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         }
         else
         {
-
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
             mTitle = getTitle();
@@ -86,14 +90,12 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                     (DrawerLayout) findViewById(R.id.drawer_layout));
 
             if (findViewById(R.id.container) != null) {
-
                 // However, if we're being restored from a previous state,
                 // then we don't need to do anything and should return or else
                 // we could end up with overlapping fragments.
                 if (savedInstanceState != null) {
                     return;
                 }
-
 
                 // In case this activity was started with special instructions from an
                 // Intent, pass the Intent's extras to the fragment as arguments
@@ -117,18 +119,22 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         {
             default:
             case 0:
-                CPanel firstFragment = new CPanel();
-                transaction.replace(R.id.container, firstFragment);
+                cPanel = new CPanel();
+                if (cPanel.isAdded())
+                {
+                    transaction.show(cPanel);
+                }
+                else {
+                    transaction.replace(R.id.container, cPanel);
+                }
                 //transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case 1:
-
                 if (cPanel.isAdded())
                 {
                     transaction.hide(cPanel);
                 }
-
 
                 if (settings.isAdded())
                 {
@@ -142,7 +148,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 } else
                 */
                 // fragment needs to be added to frame container
-                transaction.replace(R.id.container, control, "settings");
+                transaction.replace(R.id.container, control, "control");
                 transaction.commit();
                 break;
 
@@ -158,12 +164,36 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                     transaction.show(settings);
                 } else
                 */
-                 // fragment needs to be added to frame container
-                    transaction.replace(R.id.container, settings, "settings");
-                    //transaction.addToBackStack(null);
+                // fragment needs to be added to frame container
+                transaction.replace(R.id.container, settings, "settings");
+                //transaction.addToBackStack(null);
 
                 transaction.commit();
                 break;
+/*
+            case 3:
+                if (cPanel.isAdded())
+                {
+                    transaction.hide(cPanel);
+                }
+                if (settings.isAdded())
+                {
+                    // if the fragment is already in container
+                    transaction.hide(settings);
+                }
+                if (control.isAdded())
+                {
+                    // if the fragment is already in container
+                    transaction.hide(control);
+                }
+
+                // fragment needs to be added to frame container
+                transaction.replace(R.id.container, settings, "settings");
+                //transaction.addToBackStack(null);
+
+                transaction.commit();
+                break;
+                */
         }
     }
 

@@ -632,7 +632,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:id="@+id/switchOYaw"
+                            android:id="@+id/switchAYaw"
                             android:layout_alignParentRight="true" />
 
                     </RelativeLayout>
