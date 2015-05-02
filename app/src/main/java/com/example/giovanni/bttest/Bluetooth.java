@@ -194,6 +194,53 @@ public class Bluetooth {
         }
     }
 
+    /*
+    public static void connectToTenzo() throws IOException {
+        BluetoothSocket mmSocket = null;
+
+        //UUID uuid = UUID.fromString(uid);
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
+        // Set up a pointer to the remote node using it's address.
+        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
+        try {
+            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
+        } catch (IOException e) {
+            // Qualcosa
+            associated = false;
+        }
+        // Cancel discovery because it will slow down the connection
+        mBluetoothAdapter.cancelDiscovery();
+
+        try {
+            mmSocket.connect();
+            associated = true;
+            //beginListenForData();
+            //out.append("\n...Connection established and data link opened...");
+        } catch (IOException e) {
+            try {
+                mmSocket.close();
+                associated = false;
+            } catch (IOException e2) {
+                Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
+                        .show();
+                associated = false;
+            }
+        }
+        try {
+            mmInputStream = mmSocket.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            mmOutputStream = mmSocket.getOutputStream();
+        } catch (IOException e) {
+
+            Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
+        }
+    }
+*/
     public boolean isAssociated() {
         if (associated)
             return true;

@@ -57,7 +57,14 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
     private CPanel cPanel;
     private Settings settings;
     private Control control;
+    private Connection connection;
+    String intentConn = "connection";
+    String intentTour = "tour";
+
+    public int connected = 0;
+    public int tour = 0;
     NetworkUtil net;
+
 
     public MainActivity() {
         cPanel = new CPanel();
@@ -81,33 +88,66 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         }
         else
         {
+            Intent i = getIntent();
+            Bundle extras = getIntent().getExtras();
+
+            if(extras == null) {
+                tour = 0;
+                connected = 0;
+            } else {
+            //Log.e("Main ","Received extras: " + extras.getString(intentConn)+ "; " + extras.getString(intentTour));
+                String c = extras.getString(intentConn);
+                if (c!=null)
+                    connected = Integer.parseInt(c);
+                String t = extras.getString(intentTour);
+                if (t!=null)
+                    tour = Integer.parseInt(t);
+            }
 
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
             mTitle = getTitle();
 
             // Set up the drawer.
-            mNavigationDrawerFragment.setUp(
-                    R.id.navigation_drawer,
+            mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
                     (DrawerLayout) findViewById(R.id.drawer_layout));
 
-            if (findViewById(R.id.container) != null) {
+            if(connected == 0 && tour == 0)
+            {
+                //	Establishes connection with Tenzo
+                Intent connect = new Intent(getApplicationContext(), Connection.class);
+                Log.d("Main -> Connection", "Not connected to Drone. Have a good one!");
+                startActivity(connect);
+                // Closing Main activity
+                finish();
 
-                // However, if we're being restored from a previous state,
-                // then we don't need to do anything and should return or else
-                // we could end up with overlapping fragments.
-                if (savedInstanceState != null) {
-                    return;
+                /*
+                Intent events = new Intent(getApplicationContext(), Home.class);
+                events.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                events.putExtra("id", retrieveUserId());
+                startActivity(events);
+                // Closing Main activity
+                finish();
+                */
+            }
+            else if (connected == 1 || tour == 1) {
+
+                if (findViewById(R.id.container) != null) {
+                    // However, if we're being restored from a previous state,
+                    // then we don't need to do anything and should return or else
+                    // we could end up with overlapping fragments.
+                    if (savedInstanceState != null) {
+                        return;
+                    }
+
+                    // In case this activity was started with special instructions from an
+                    // Intent, pass the Intent's extras to the fragment as arguments
+                    //cPanel.setArguments(getIntent().getExtras());
+
+                    // Add the fragment to the 'fragment_container' FrameLayout
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.container, cPanel).commit();
                 }
-
-
-                // In case this activity was started with special instructions from an
-                // Intent, pass the Intent's extras to the fragment as arguments
-                //cPanel.setArguments(getIntent().getExtras());
-
-                // Add the fragment to the 'fragment_container' FrameLayout
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, cPanel).commit();
             }
         }
 
@@ -122,10 +162,13 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         switch(position)
         {
             default:
+
+                break;
             case 0:
+                //
                 CPanel firstFragment = new CPanel();
                 transaction.replace(R.id.container, firstFragment);
-                //transaction.addToBackStack(null);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case 1:
@@ -202,7 +245,6 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         switch (number)
         {
             case 1:
-
                 // Create a new Fragment to be placed in the activity layout
                 CPanel firstFragment = new CPanel();
                 transaction.replace(R.id.container, firstFragment);
@@ -217,10 +259,12 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 mTitle = getString(R.string.title_section2);
                 break;
             case 3:
+                /*
                 Settings thirdFragment = new Settings();
                 transaction.replace(R.id.container, thirdFragment);
                 transaction.commit();
                 mTitle = getString(R.string.title_section3);
+                */
                 break;
         }
     }

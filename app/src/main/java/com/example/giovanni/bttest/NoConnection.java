@@ -52,6 +52,7 @@ public class NoConnection extends Activity
                 //toast.show();
                 if (net.getConnectivityStatus(getApplicationContext())!=0)
                 {
+
                     Intent main = new Intent(getApplicationContext(), MainActivity.class);
                     Log.e("Connection -> Main", "Check!");
                     main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -308,8 +308,6 @@ public class CPanel extends Fragment
         }
     });
 
-
-
     Log.e("Cpanel report", "view created.");
     return v;
 

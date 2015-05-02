@@ -75,6 +75,8 @@
     <!-- Connect -->
     <string name="welcomeTenzo">Welcome to Tenzo</string>
     <string name="connect">Connect</string>
+    <string name="iniMess">Please establish connection</string>
+    <string name="tour">Take a tour</string>
 
 
 </resources>
