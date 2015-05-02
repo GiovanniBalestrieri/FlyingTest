@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/red"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!--  Name TextField -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="48dp"
+                android:hint="@string/welcomeTenzo"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/VeryBig"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/drone" />
+
+
+            <TextView
+                android:id="@+id/connectionLogs"
+                android:mar
+                android:gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="10"
+                android:text="Ack received"
+                android:padding="10dip"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btnRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#6000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/connect"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/padding_large"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

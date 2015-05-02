@@ -407,248 +407,6 @@
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:id="@+id/AYawView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone">
-
-                        <RelativeLayout
-                            android:id="@+id/AYSR"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <Button
-                                android:id="@+id/AYReceive"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Receive"
-                                android:layout_alignParentLeft="true" />
-
-                            <Button
-                                android:id="@+id/AYSend"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Send"
-                                android:layout_alignParentRight="true"/>
-
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:baselineAligned="false"
-                            android:paddingBottom="4sp"
-                            android:paddingTop="15dp"
-                            android:orientation="horizontal"
-                            android:weightSum="3" >
-
-                            <LinearLayout
-                                android:id="@+id/KpAY"
-                                android:layout_width="fill_parent"
-                                android:gravity="center"
-                                android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Kp"/>
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KpAYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0.15"
-                                    android:paddingBottom="4sp"
-                                    android:paddingTop="4sp"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/KiAY"
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Ki" />
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KiAYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="4sp"
-                                    android:textSize="16sp"
-                                    android:text="0.09"
-                                    android:paddingTop="4sp"
-                                    android:textColor="#000000"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/KdAY"
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Kd"/>
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KdAYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="4sp"
-                                    android:paddingTop="4sp"
-                                    android:textSize="16sp"
-                                    android:textColor="#000000"
-                                    android:text="0.0001"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/sliderKpAY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#808080"
-                                android:textSize="16sp"
-                                android:layout_marginLeft="20dp"
-                                android:text="@string/Kp"/>
-
-                            <SeekBar
-                                android:id="@+id/KpAYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/sliderKiAY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#808080"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="16sp"
-                                android:text="@string/Ki"/>
-
-                            <SeekBar
-                                android:id="@+id/KiAYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/sliderKdAY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#808080"
-                                android:textSize="16sp"
-                                android:text="@string/Kd"/>
-
-                            <SeekBar
-                                android:id="@+id/KdAYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Angular Yaw  -->
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="25sp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:paddingBottom="3sp"
-                            android:paddingLeft="10sp"
-                            android:text="@string/AYaw"
-                            android:textColor="#000000"
-                            android:textSize="18sp"
-                            android:layout_alignParentLeft="true"/>
-
-
-
-                        <Switch
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:id="@+id/switchAYaw"
-                            android:layout_alignParentRight="true" />
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dip"
-                        android:background="#bebebe"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="6dp"
-                        />
-
-                    <LinearLayout
-                        android:orientation="vertical"
                         android:id="@+id/APitchView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -839,6 +597,251 @@
 
                             <SeekBar
                                 android:id="@+id/KdAPseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <!-- Angular Yaw  -->
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="25sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:paddingBottom="3sp"
+                            android:paddingLeft="10sp"
+                            android:text="@string/AYaw"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:layout_alignParentLeft="true"/>
+
+
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:id="@+id/switchAYaw"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#bebebe"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="6dp"
+                        />
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/AYawView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <RelativeLayout
+                            android:id="@+id/AYSR"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/AYReceive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Receive"
+                                android:layout_alignParentLeft="true" />
+
+                            <Button
+                                android:id="@+id/AYSend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Send"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:baselineAligned="false"
+                            android:paddingBottom="4sp"
+                            android:paddingTop="15dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3" >
+
+                            <LinearLayout
+                                android:id="@+id/KpAY"
+                                android:layout_width="fill_parent"
+                                android:gravity="center"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Kp"/>
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KpAYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.15"
+                                    android:paddingBottom="4sp"
+                                    android:paddingTop="4sp"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/KiAY"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Ki" />
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KiAYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4sp"
+                                    android:textSize="16sp"
+                                    android:text="0.09"
+                                    android:paddingTop="4sp"
+                                    android:textColor="#000000"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/KdAY"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Kd"/>
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KdAYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4sp"
+                                    android:paddingTop="4sp"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000"
+                                    android:text="0.0001"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sliderKpAY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#808080"
+                                android:textSize="16sp"
+                                android:layout_marginLeft="20dp"
+                                android:text="@string/Kp"/>
+
+                            <SeekBar
+                                android:id="@+id/KpAYseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sliderKiAY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#808080"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="16sp"
+                                android:text="@string/Ki"/>
+
+                            <SeekBar
+                                android:id="@+id/KiAYseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/sliderKdAY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:textColor="#808080"
+                                android:textSize="16sp"
+                                android:text="@string/Kd"/>
+
+                            <SeekBar
+                                android:id="@+id/KdAYseek"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="10dp"
@@ -1134,247 +1137,6 @@
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:id="@+id/WYawView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone">
-
-                        <RelativeLayout
-                            android:id="@+id/WYSR"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <Button
-                                android:id="@+id/WYReceive"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Receive"
-                                android:layout_alignParentLeft="true" />
-
-                            <Button
-                                android:id="@+id/WYSend"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Send"
-                                android:layout_alignParentRight="true"/>
-
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:baselineAligned="false"
-                            android:paddingBottom="4sp"
-                            android:paddingTop="15dp"
-                            android:orientation="horizontal"
-                            android:weightSum="3" >
-
-                            <LinearLayout
-                                android:id="@+id/KpWY"
-                                android:layout_width="fill_parent"
-                                android:gravity="center"
-                                android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Kp"/>
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KpWYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0.15"
-                                    android:paddingBottom="4sp"
-                                    android:paddingTop="4sp"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/KiWY"
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Ki" />
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KiWYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="4sp"
-                                    android:textSize="16sp"
-                                    android:text="0.09"
-                                    android:paddingTop="4sp"
-                                    android:textColor="#000000"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/KdWY"
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="#808080"
-                                    android:textSize="16sp"
-                                    android:text="@string/Kd"/>
-
-                                <TextView
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:id="@+id/KdWYval"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingBottom="4sp"
-                                    android:paddingTop="4sp"
-                                    android:textSize="16sp"
-                                    android:textColor="#000000"
-                                    android:text="0.0001"
-                                    android:textIsSelectable="true"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/sliderKpWY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#808080"
-                                android:textSize="16sp"
-                                android:layout_marginLeft="20dp"
-                                android:text="@string/Kp"/>
-
-                            <SeekBar
-                                android:id="@+id/KpWYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/sliderKiWY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#808080"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="16sp"
-                                android:text="@string/Ki"/>
-
-                            <SeekBar
-                                android:id="@+id/KiWYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/sliderKdWY"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#808080"
-                                android:textSize="16sp"
-                                android:text="@string/Kd"/>
-
-                            <SeekBar
-                                android:id="@+id/KdWYseek"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:progress="20"
-                                android:secondaryProgress="20" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="25sp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:paddingBottom="3sp"
-                            android:paddingLeft="10sp"
-                            android:text="@string/WYaw"
-                            android:textColor="#000000"
-                            android:textSize="18sp"
-                            android:layout_alignParentLeft="true"/>
-
-
-
-                        <Switch
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:id="@+id/switchWYaw"
-                            android:layout_alignParentRight="true" />
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dip"
-                        android:background="#bebebe"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="6dp"
-                        />
-
-                    <LinearLayout
-                        android:orientation="vertical"
                         android:id="@+id/WPitchView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1575,6 +1337,245 @@
 
                     </LinearLayout>
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="25sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:paddingBottom="3sp"
+                            android:paddingLeft="10sp"
+                            android:text="@string/WYaw"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:layout_alignParentLeft="true"/>
+
+
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:id="@+id/switchWYaw"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="#bebebe"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/WYawView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <RelativeLayout
+                            android:id="@+id/WYSR"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/WYReceive"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Receive"
+                                android:layout_alignParentLeft="true" />
+
+                            <Button
+                                android:id="@+id/WYSend"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Send"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:baselineAligned="false"
+                            android:paddingBottom="4sp"
+                            android:paddingTop="15dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3" >
+
+                            <LinearLayout
+                                android:id="@+id/KpWY"
+                                android:layout_width="fill_parent"
+                                android:gravity="center"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Kp"/>
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KpWYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.15"
+                                    android:paddingBottom="4sp"
+                                    android:paddingTop="4sp"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/KiWY"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Ki" />
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KiWYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4sp"
+                                    android:textSize="16sp"
+                                    android:text="0.09"
+                                    android:paddingTop="4sp"
+                                    android:textColor="#000000"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/KdWY"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#808080"
+                                    android:textSize="16sp"
+                                    android:text="@string/Kd"/>
+
+                                <TextView
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:id="@+id/KdWYval"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4sp"
+                                    android:paddingTop="4sp"
+                                    android:textSize="16sp"
+                                    android:textColor="#000000"
+                                    android:text="0.0001"
+                                    android:textIsSelectable="true"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sliderKpWY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#808080"
+                                android:textSize="16sp"
+                                android:layout_marginLeft="20dp"
+                                android:text="@string/Kp"/>
+
+                            <SeekBar
+                                android:id="@+id/KpWYseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sliderKiWY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#808080"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="16sp"
+                                android:text="@string/Ki"/>
+
+                            <SeekBar
+                                android:id="@+id/KiWYseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/sliderKdWY"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:textColor="#808080"
+                                android:textSize="16sp"
+                                android:text="@string/Kd"/>
+
+                            <SeekBar
+                                android:id="@+id/KdWYseek"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:progress="20"
+                                android:secondaryProgress="20" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

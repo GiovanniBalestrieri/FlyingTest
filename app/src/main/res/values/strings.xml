@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Tenzo</string>
 
-    <string name="title_section0">Home</string>
-    <string name="title_section1">CPanel</string>
-    <string name="title_section2">Control</string>
-    <string name="title_section3">Settings</string>
+    <string name="title_section0">CPanel</string>
+    <string name="title_section1">Control</string>
+    <string name="title_section2">Settings</string>
+    <string name="title_section3">Connect</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -71,6 +71,10 @@
     <string name="houston">Call Houston</string>
     <string name="check">Check</string>
     <string name="ctrlPageTitle">Control</string>
+
+    <!-- Connect -->
+    <string name="welcomeTenzo">Welcome to Tenzo</string>
+    <string name="connect">Connect</string>
 
 
 </resources>

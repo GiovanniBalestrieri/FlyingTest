@@ -60,6 +60,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
     NetworkUtil net;
 
     public MainActivity() {
+        cPanel = new CPanel();
         settings = new Settings();
         control = new Control();
     }
@@ -80,6 +81,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         }
         else
         {
+
             mNavigationDrawerFragment = (NavigationDrawerFragment)
                     getFragmentManager().findFragmentById(R.id.navigation_drawer);
             mTitle = getTitle();
@@ -90,12 +92,14 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                     (DrawerLayout) findViewById(R.id.drawer_layout));
 
             if (findViewById(R.id.container) != null) {
+
                 // However, if we're being restored from a previous state,
                 // then we don't need to do anything and should return or else
                 // we could end up with overlapping fragments.
                 if (savedInstanceState != null) {
                     return;
                 }
+
 
                 // In case this activity was started with special instructions from an
                 // Intent, pass the Intent's extras to the fragment as arguments
@@ -119,14 +123,8 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         {
             default:
             case 0:
-                cPanel = new CPanel();
-                if (cPanel.isAdded())
-                {
-                    transaction.show(cPanel);
-                }
-                else {
-                    transaction.replace(R.id.container, cPanel);
-                }
+                CPanel firstFragment = new CPanel();
+                transaction.replace(R.id.container, firstFragment);
                 //transaction.addToBackStack(null);
                 transaction.commit();
                 break;
@@ -135,20 +133,18 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 {
                     transaction.hide(cPanel);
                 }
-
                 if (settings.isAdded())
                 {
                     transaction.hide(settings);
                 }
-                /*
-                if (settings.isAdded())
+                if (control.isAdded())
                 {
-                    // if the fragment is already in container
-                    transaction.show(settings);
-                } else
-                */
+                    transaction.show(control);
+                }
+                else{
+                    transaction.replace(R.id.container, control, "control");
+                }
                 // fragment needs to be added to frame container
-                transaction.replace(R.id.container, control, "control");
                 transaction.commit();
                 break;
 
@@ -157,20 +153,23 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 {
                     transaction.hide(cPanel);
                 }
-                /*
+                if (control.isAdded())
+                {
+                    transaction.hide(control);
+                }
                 if (settings.isAdded())
                 {
-                    // if the fragment is already in container
                     transaction.show(settings);
-                } else
-                */
-                // fragment needs to be added to frame container
-                transaction.replace(R.id.container, settings, "settings");
-                //transaction.addToBackStack(null);
+                }
+                else {
+                    // fragment needs to be added to frame container
+                    transaction.replace(R.id.container, settings, "settings");
+                }
 
+                //transaction.addToBackStack(null);
                 transaction.commit();
                 break;
-/*
+
             case 3:
                 if (cPanel.isAdded())
                 {
@@ -179,7 +178,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 if (settings.isAdded())
                 {
                     // if the fragment is already in container
-                    transaction.hide(settings);
+                    // transaction.hide(settings);
                 }
                 if (control.isAdded())
                 {
@@ -188,12 +187,11 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 }
 
                 // fragment needs to be added to frame container
-                transaction.replace(R.id.container, settings, "settings");
+                //transaction.replace(R.id.container, settings, "settings");
                 //transaction.addToBackStack(null);
 
                 transaction.commit();
                 break;
-                */
         }
     }
 

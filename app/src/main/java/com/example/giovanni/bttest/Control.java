@@ -150,7 +150,6 @@ public class Control extends Fragment {
             }
         });
 
-
         //TODO
         // Add a state check and modify
         //aRoll.setChecked(true);
