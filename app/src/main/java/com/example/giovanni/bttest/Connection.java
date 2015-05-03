@@ -18,7 +18,7 @@ import com.example.giovanni.bttest.R;
 /**
  * Created by userk on 02/05/15.
  */
-public class Connection extends Activity
+public class Connection extends  Activity
 {
     Button tour;
     LinearLayout connect;

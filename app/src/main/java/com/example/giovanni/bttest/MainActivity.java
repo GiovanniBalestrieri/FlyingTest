@@ -1,7 +1,6 @@
-    package com.example.giovanni.bttest;
+package com.example.giovanni.bttest;
 
 import android.app.Activity;
-
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -28,9 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.giovanni.bttest.Utils.NetworkUtil;
-
 import java.util.Set;
 
 
@@ -221,7 +218,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 if (settings.isAdded())
                 {
                     // if the fragment is already in container
-                    // transaction.hide(settings);
+                    transaction.hide(settings);
                 }
                 if (control.isAdded())
                 {
@@ -269,7 +266,8 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         }
     }
 
-    public void restoreActionBar() {
+    public void restoreActionBar()
+    {
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
