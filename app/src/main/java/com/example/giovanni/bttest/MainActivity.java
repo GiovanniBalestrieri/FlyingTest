@@ -78,8 +78,8 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         if (NetworkUtil.getConnectivityStatus(this)==0)
         {
             Intent conn = new Intent(getApplicationContext(), NoConnection.class);
-            Log.e("Main -> Connection", "No internet connection. Have a good one!");
-            conn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Log.d("Main -> Connection", "No internet connection. Have a good one!");
+            //conn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(conn);
             finish();
         }
