@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.giovanni.bttest.R;
 
 /**
  * Created by userk on 02/05/15.

@@ -75,6 +75,14 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mTitle = getTitle();
+
+        // Set up the drawer.
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout));
+
         if (NetworkUtil.getConnectivityStatus(this)==0)
         {
             Intent conn = new Intent(getApplicationContext(), NoConnection.class);
@@ -100,14 +108,6 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 if (t!=null)
                     tour = Integer.parseInt(t);
             }
-
-            mNavigationDrawerFragment = (NavigationDrawerFragment)
-                    getFragmentManager().findFragmentById(R.id.navigation_drawer);
-            mTitle = getTitle();
-
-            // Set up the drawer.
-            mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout));
 
             if(connected == 0 && tour == 0)
             {

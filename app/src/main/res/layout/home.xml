@@ -35,7 +35,7 @@
 						                    android:layout_height="wrap_content"
 						                    android:adjustViewBounds="true"
 						                    android:minHeight="200dp"
-						                    android:src="@drawable/home" />
+						                    android:src="@drawable/wall" />
 
 			               				<LinearLayout
 			               				    android:id="@+id/takeOffLand"
@@ -258,7 +258,7 @@
                                     </LinearLayout>
 
                                 </LinearLayout>
--->
+
                                 <LinearLayout android:id="@+id/luogoButtonLayout"
                                         android:layout_width="fill_parent"
                                         android:layout_height="50dp"
