@@ -11,8 +11,8 @@ import android.widget.Toast;
 import com.example.giovanni.bttest.Utils.NetworkUtil;
 
 /**
- * Created by userk on 12/04/15.
- */
+ ** Created by userk on 12/04/15.
+ **/
 public class NoConnection extends Activity
 {
     LinearLayout fold;
@@ -47,9 +47,6 @@ public class NoConnection extends Activity
         {
             public void onClick(View v)
             {
-                //Developer tool
-                //Toast toast=Toast.makeText(NoConnection.this," Check clicked",Toast.LENGTH_LONG);
-                //toast.show();
                 if (net.getConnectivityStatus(getApplicationContext())!=0)
                 {
 

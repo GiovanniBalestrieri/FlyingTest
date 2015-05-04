@@ -54,6 +54,10 @@
         <activity
             android:name=".RoverPosition"
             android:label="Track your rover"/>
-    </application>
+
+        <activity
+            android:name=".Utils.AccelOrientExample"
+            android:label="Sensors"/>
+</application>
 
 </manifest>
