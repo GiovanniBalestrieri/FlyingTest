@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +31,13 @@ public class CPanel extends Fragment
     LinearLayout takeOff;
     LinearLayout land;
     LinearLayout map;
+    LinearLayout orient;
     Button status;
     Button test;
     Button pid;
     TextView log;
     TextView roll,pitch,yaw,warning,state;
+    private Switch pidSwitch,orientSwitch;
 
     static Handler handler;
     static final byte delimiter = 10;
@@ -66,6 +70,9 @@ public class CPanel extends Fragment
         state = (TextView) v.findViewById(R.id.state);
         warning = (TextView) v.findViewById(R.id.warning);
         map = (LinearLayout) v.findViewById(R.id.luogoButtonLayout);
+        orient = (LinearLayout) v.findViewById(R.id.infosOrientationPage);
+        orientSwitch = (Switch) v.findViewById(R.id.getOrientationSlider);
+        pidSwitch = (Switch) v.findViewById(R.id.enPidSlider);
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
 
@@ -265,6 +272,79 @@ public class CPanel extends Fragment
             public void onClick(View v)
             {
                 if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click Status");
+                    String msg = "s";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        //TODO
+        // Add a state check and modify
+        //aRoll.setChecked(true);
+
+        //check the current state before we display the screen
+        if(orientSwitch.isChecked())
+        {
+            orient.setVisibility(LinearLayout.VISIBLE);
+        }
+        else
+        {
+            orient.setVisibility(LinearLayout.GONE);
+        }
+
+        //attach a listener to check for changes in state
+        orientSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    //aRoll.setText("Switch is currently ON");
+                    orient.setVisibility(LinearLayout.VISIBLE);
+                } else {
+                    //aRoll.setText("Switch is currently OFF");
+                    orient.setVisibility(LinearLayout.GONE);
+                }
+            }
+        });
+
+        //TODO
+        // Add a state check and modify
+        //aRoll.setChecked(true);
+
+        //check the current state before we display the screen
+        if(pidSwitch.isChecked())
+        {
+            //orient.setVisibility(LinearLayout.VISIBLE);
+        }
+        else
+        {
+            //orient.setVisibility(LinearLayout.GONE);
+        }
+
+        //attach a listener to check for changes in state
+        pidSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked)
+            {
+                if (blue.isAssociated())
+                {
                     Log.e("CPanel Report", "Click Status");
                     String msg = "s";
                     msg += "\n";

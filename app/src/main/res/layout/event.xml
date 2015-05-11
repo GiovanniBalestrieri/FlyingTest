@@ -140,7 +140,7 @@
 			               </LinearLayout>
 		                		
                 		        <LinearLayout
-                		            android:id="@+id/infosEventPage"
+                		            android:id="@+id/infosOrientationPage"
                 		            android:layout_marginLeft="10dp"
 					            	android:layout_marginRight="10dp"
                 		            android:layout_width="fill_parent"
@@ -245,6 +245,7 @@
                         android:paddingBottom="4sp"
                         android:paddingTop="15dp"
                         android:orientation="horizontal"
+						android:visibility="gone"
                         android:weightSum="3" >
 
                         <LinearLayout
@@ -292,6 +293,60 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+					<RelativeLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingTop="25sp">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="left"
+							android:paddingBottom="3sp"
+							android:paddingLeft="10sp"
+							android:text="@string/gOrient"
+							android:textColor="#000000"
+							android:textSize="18sp"
+							android:layout_alignParentLeft="true"/>
+
+						<Switch
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="bottom"
+							android:id="@+id/getOrientationSlider"
+							android:layout_alignParentRight="true" />
+
+
+					</RelativeLayout>
+
+					<RelativeLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingTop="25sp">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="left"
+							android:paddingBottom="3sp"
+							android:paddingLeft="10sp"
+							android:text="@string/Enpid"
+							android:textColor="#000000"
+							android:textSize="18sp"
+							android:layout_alignParentLeft="true"/>
+
+						<Switch
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="bottom"
+							android:id="@+id/enPidSlider"
+							android:layout_alignParentRight="true" />
+
+
+					</RelativeLayout>
 
 
                     <TextView

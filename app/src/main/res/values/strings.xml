@@ -33,8 +33,11 @@
     <string name="Land">Land</string>
     <string name="testConnection">Test</string>
     <string name="status">Status</string>
+    <string name="gOrient">Get Orientation</string>
+    <string name="stat">Get Status</string>
+    <string name="Enpid">Pid</string>
 
- <!-- Settings -->
+    <!-- Settings -->
 
     <string name="bluPar">Bluetooth Settings</string>
     <string name="TurnOn">Turn On</string>

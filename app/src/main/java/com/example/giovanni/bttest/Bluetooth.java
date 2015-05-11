@@ -188,6 +188,7 @@ public class Bluetooth {
 
         try {
             mmOutputStream = mmSocket.getOutputStream();
+            blueWrite("b");
         } catch (IOException e) {
 
             Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
@@ -248,11 +249,14 @@ public class Bluetooth {
             return false;
     }
 
-    public boolean blueWrite(String s) {
-        try {
+    public static boolean blueWrite(String s)
+    {
+        try
+        {
             mmOutputStream.write(s.getBytes());
             return true;
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
             return false;
         }
