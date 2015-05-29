@@ -114,47 +114,54 @@ public class Bluetooth {
         return 1;
     }
 
-    public static ArrayList<HashMap<String, String>> getDevices(ListView list)
-    {
+    public static ArrayList<HashMap<String, String>> getDevices(ListView list) {
         Log.e("Bluetooth Class Report", "Requesting bluetooth devices");
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
-        devicesList = new ArrayList<HashMap<String, String>>();
-        //ArrayList list = new ArrayList();
-        if (pairedDevices.size() > 0) {
-            HashMap<String, String> devices = new HashMap<String, String>();
-            // Loop through paired devices
-            for (BluetoothDevice device : pairedDevices) {
-                devices.put(TAG_ID, device.getAddress());
-                devices.put(TAG_NAME, device.getName());
-                devicesList.add(devices);
-                Log.e("Bluetooth Class Report", "Added: " + device.getName() + "with ID: " + device.getName());
-            }
-
-        }
-        BluAdapter adapter = new BluAdapter(activity, devicesList);
-        list.setAdapter(adapter);
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                String map = (String) parent.getItemAtPosition(position).toString();
-                Log.e("Bluetooth Class Report", "Clicked list item: " +
-                        position + " Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
-
-                try {
-                    connect(devicesList.get(position).get(TAG_ID).toString());
-                } catch (IOException ex) {
-                    Log.e("Bluetooth Class Report", " !!! Something went wrong - Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+        if (pairedDevices == null || pairedDevices.size() == 0) {
+            Toast.makeText(ctx, " No paired devices found! ", Toast.LENGTH_LONG)
+                    .show();
+        } else
+        {
+            devicesList = new ArrayList<HashMap<String, String>>();
+            //ArrayList list = new ArrayList();
+            if (pairedDevices.size() > 0)
+            {
+                HashMap<String, String> devices = new HashMap<String, String>();
+                // Loop through paired devices
+                for (BluetoothDevice device : pairedDevices)
+                {
+                    devices.put(TAG_ID, device.getAddress());
+                    devices.put(TAG_NAME, device.getName());
+                    devicesList.add(devices);
+                    Log.e("Bluetooth Class Report", "Added: " + device.getName() + "with ID: " + device.getName());
                 }
-
-                //String item = (String) parent.getItemAtPosition(position);
-                Log.e("Bluetooth Class Report", "Requesting connection to device: " + devicesList.get(position).get(TAG_NAME).toString());
-                Toast.makeText(ctx, "Connected: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG).show();
             }
-        });
-        return devicesList;
+
+            BluAdapter adapter = new BluAdapter(activity, devicesList);
+            list.setAdapter(adapter);
+
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    String map = (String) parent.getItemAtPosition(position).toString();
+                    Log.e("Bluetooth Class Report", "Clicked list item: " +
+                            position + " Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+
+                    try {
+                        connect(devicesList.get(position).get(TAG_ID).toString());
+                    } catch (IOException ex) {
+                        Log.e("Bluetooth Class Report", " !!! Something went wrong - Device's name: \n" + devicesList.get(position).get(TAG_NAME).toString());
+                    }
+
+                    //String item = (String) parent.getItemAtPosition(position);
+                    Log.e("Bluetooth Class Report", "Requesting connection to device: " + devicesList.get(position).get(TAG_NAME).toString());
+                    Toast.makeText(ctx, "Connected: " + devicesList.get(position).get(TAG_NAME).toString(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+            return devicesList;
     }
 
     public static void connect(String uid) throws IOException

@@ -52,6 +52,11 @@
         </activity>
 
         <activity
+            android:name=".Libraries.DeviceListActivity"
+            android:label="ListBlue">
+        </activity>
+
+        <activity
             android:name=".RoverPosition"
             android:label="Track your rover"/>
 

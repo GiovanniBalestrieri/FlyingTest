@@ -55,6 +55,10 @@
             android:label="Connect to Drone" >
         </activity>
         <activity
+            android:name="com.example.giovanni.bttest.Libraries.DeviceListActivity"
+            android:label="ListBlue" >
+        </activity>
+        <activity
             android:name="com.example.giovanni.bttest.RoverPosition"
             android:label="Track your rover" />
         <activity

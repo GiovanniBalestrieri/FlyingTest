@@ -5,8 +5,11 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -21,6 +24,8 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.example.giovanni.bttest.Libraries.DeviceListActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,6 +61,8 @@ public class Settings extends Fragment
     private ProgressDialog mProgressDlg;
 
     ArrayList<HashMap<String, String>> devicesList;
+    private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
+    IntentFilter filter = new IntentFilter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,6 +86,10 @@ public class Settings extends Fragment
         Off.setVisibility(view.GONE);
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(), this.getActivity());
+
+        mBluetoothAdapter	= BluetoothAdapter.getDefaultAdapter();
+
+        mProgressDlg 		= new ProgressDialog(getActivity());
 
         mProgressDlg.setMessage("Scanning...");
         mProgressDlg.setCancelable(false);
@@ -181,13 +192,20 @@ public class Settings extends Fragment
                 }
             });
 
-
             Scan.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     devicesList = blue.getDevices(bluList);
                 }
             });
         }
+
+        // Register the BroadcastReceiver
+        filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        filter.addAction(BluetoothDevice.ACTION_FOUND);
+        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+
+        getActivity().getApplicationContext().registerReceiver(mReceiver, filter);
 
         Log.e("Settings report", "view created.");
         return view;
@@ -202,4 +220,52 @@ public class Settings extends Fragment
         }
         super.onPause();
     }
+
+    // Broadcast reveiver for ACtion found state changed
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
+
+                if (state == BluetoothAdapter.STATE_ON) {
+                    showToast("Enabled");
+
+                    //showEnabled();
+                }
+            } else if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
+                mDeviceList = new ArrayList<BluetoothDevice>();
+
+                mProgressDlg.show();
+            } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                mProgressDlg.dismiss();
+
+                Intent newIntent = new Intent(getActivity(), DeviceListActivity.class);
+
+                newIntent.putParcelableArrayListExtra("device.list", mDeviceList);
+
+                startActivity(newIntent);
+            } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+
+                mDeviceList.add(device);
+
+                showToast("Found device " + device.getName());
+            }
+        }
+    };
+
+
+    private void showToast(String message) {
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        getActivity().getApplicationContext().unregisterReceiver(mReceiver);
+
+        super.onDestroy();
+    }
+
 }
