@@ -89,19 +89,25 @@ public class Bluetooth {
         return result;
     }
 
-    public void turnOff() {
+    public void turnOff()
+    {
         Log.e("Bluetooth Class Report", "Turning Off Bluetooth");
-        mBluetoothAdapter.disable();
-        Toast.makeText(activity.getApplicationContext(), "Turned off",
-                Toast.LENGTH_LONG).show();
-        associated = false;
+        if (mBluetoothAdapter.isEnabled())
+        {
+            mBluetoothAdapter.disable();
+            Toast.makeText(activity.getApplicationContext(), "Bluetooth turned off",
+                    Toast.LENGTH_LONG).show();
+            associated = false;
+        }
     }
 
-    public static int getVisibility() {
+    public static int getVisibility()
+    {
         Log.e("Bluetooth Class Report", "Requesting visibility");
         // Turn device visible - Bluetooth
         Intent getVisible = new Intent(mBluetoothAdapter.
                 ACTION_REQUEST_DISCOVERABLE);
+        getVisible.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
         activity.startActivityForResult(getVisible, 0);
         return 1;
     }

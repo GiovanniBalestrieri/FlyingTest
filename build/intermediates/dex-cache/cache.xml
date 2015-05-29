@@ -2,305 +2,158 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-4865f948400206367511ba9d1f8b8dbd975fba62.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-54841f1c65eb7230b99a625f338bcbffe648d767.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-bfd6e0c92428f31a0c70ce44e016b67fa2308485.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-5391922274ecded236c27297c2849ea6e5523bd7.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-f7184f47f833198f7c8ade0425f9ab1eb511197b.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-95a214c02fbd0b301c17e2690f58f9160aec92a5.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-1e8dcce50494f3267ad887e27b720a2bb3fe21aa.jar" />
+        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-64b0275343a036766f0297b8f44fb1fb0689bbf4.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-236b1e09db695c30d8055cf64939405176cba9b5.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-5ca2aba6e18a7d73cc7dd418addbe6b092f7af54.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-ec63a3814c4c9bff96a1fd398a503c325846737a.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-06e60599d0221e2c8e8a12549bf1dccf57d78ea8.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-990770b1275453188448ecc1daba19c414d3d819.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-b5d7935971cc8a486b03ed092185f5d0e671d73c.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-9a1a2f0c7aba97b03479bc384ad52d35de75d2ac.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-8ecf271ffcc4cbbc93c3f1e69318beed6d520c3f.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-0e7655539f8edfb2619fafcec7d85a8a4d691968.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-56006d688197b8b1c1e8b85922fc25a554a98d7e.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-6d1fe5c98d1316fd0ecb06aff3fa7d1420948883.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-500179033a06b80b0961d6c6e69204565ae993f9.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-f4d804853377603569c2ec8a025b4ceb486cfb81.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-4dd264ec76cd2abf584d3d52bfe482d1c0cdd91c.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-595aa9017da576e3d146d687ce86f15ae35ee8c9.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-2e064f7b2e5b4090552fbcd4b265bfebc230fb71.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-82419fae65854bbd292cb22e729de1781b19d50b.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-e5407f1c49fd7cd1490aa7b265c67f2bc78419ff.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-358c4d8195b006e3eadc16286c863e74723a6640.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-34170690172a9578b9e31172e6175dd081cb7937.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-5df2ac5a27f983e8e2e25c7df34ea4f5f86fe2a6.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-0462a5472990763e6ad4c875500817896596b489.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-c355fbb2b6b1398a3763d20a40172032a1405987.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-671cf7db351b8d1b4de1325b4888348aa4459af1.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-7099216935496987ca18e058e9a08d5dfd4a3dd8.jar" />
+        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-71df55df2bcc997f9632f7b16b7d9409124536fd.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-d5702e0006bdc1b8e4e90dfc89ff38be4b659c97.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-408f373ac10af0b9120f2ba715e45eaef202aad1.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jar="/home/userk/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-f63c8c57285064ce03d62c5c2f3265d31649d502.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-bc15faea9ad01dad9ae04830531358ed2951f966.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-781513502b538508dbd8da24ae9b28a5e4bdc5a0.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-242b45555cf3fc4f1fe777cfb837e2d70aa92119.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-0441f1e7423a9f784440a8b06e966faa231b84c0.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="055783146ba9654a725442563be78cad303aad1f">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-d019f72ec4348972c06f8ae585c0bd51ffc712b6.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-52afd82d41c330572984efca5c6c660b6d919581.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-d25f6a0d82bf92c34713e6d403f3d8e87c2b6e71.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-a8806f1ce562ae34d8a73a11577c895f7efc58a3.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-64ac2cd87dbf559996b772e68b2b2a034893bde3.jar" />
+        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-c8cfa3cb3a5f1bd3f35e37ee31a58df03b603e00.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-b43a0ea423ed0900191d48a81ce71d0a5035ca0f.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-e9512eeda80645eed1086fffe97b6214bcaddd2f.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-f175044b8bfe679286ef639f957d1cd6070dc02d.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-65bc1083eb6ab5f37120383ab3700f635ff10271.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-7543bb79a58a5ec2f5d71b64a50409841fa3c103.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-05ce23ae892101638d1e98e3d061a5017aa1c509.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-e817ab7ec097e4170b6ad7007208d8264226d788.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-9c27b7b0182aa55c55e2bcf1f47dca1532bdd77c.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="C:\Users\UserK\Downloads\AndroidStudioProjects\Android\app\build\intermediates\pre-dexed\debug\classes-13e9390d64f86012b266c76dacc73f0f3f76f6fe.jar" />
-    </item>
-    <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-6b3fe2e9c67413a18989cd48f1f9ce4d1e295461.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-490307a2acdbb72e5624234d2b3fe198f0017cda.jar" />
     </item>
     <item
-        jar="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-3c37bd6a53b1b28f16974fbc50312b92bdfcced2.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-2ad025061c5273055e1379b8060181b8a96a630e.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="C:\Users\UserK\Development\Projects\Robotics\Tenzo\Android\FlyingTest\app\build\intermediates\pre-dexed\debug\classes-0b8a0c07db3a11fb8945953575d6dea129ab103c.jar" />
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-40cf8285826d2247112efb92f75776781037b00c.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-628fbb0a81b8eba47a5485426e065755bff607c0.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-e2fd45ff8c5c51208c5b9bb5679d52e3b4a00193.jar" />
+    </item>
+    <item
+        jar="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
+        <dex dex="/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/pre-dexed/debug/classes-9f0672b5ce6ba90d9dcc20f4ee56f67961ed8980.jar" />
     </item>
 
 </items>
