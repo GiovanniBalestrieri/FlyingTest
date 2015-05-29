@@ -42,7 +42,7 @@
     <string name="bluPar">Bluetooth Settings</string>
     <string name="TurnOn">Turn On</string>
     <string name="visible">Visible</string>
-    <string name="Scan">Scan</string>
+    <string name="Scan">Paired</string>
     <string name="toggle">Enable</string>
     <string name="visibile">Visibility</string>
     <string name="send">Send</string>

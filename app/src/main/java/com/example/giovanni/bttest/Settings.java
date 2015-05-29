@@ -1,9 +1,11 @@
 package com.example.giovanni.bttest;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,13 +53,13 @@ public class Settings extends Fragment
     int readBufferPosition;
     int counter;
     volatile boolean stopWorker;
+    private ProgressDialog mProgressDlg;
 
     ArrayList<HashMap<String, String>> devicesList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         android.view.View view = inflater.inflate(R.layout.settings, container, false);
         On = (Button) view.findViewById(R.id.turnOnBlu);
@@ -76,114 +78,121 @@ public class Settings extends Fragment
         On.setVisibility(view.GONE);
         Off.setVisibility(view.GONE);
 
-        final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
+        final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(), this.getActivity());
 
-        land.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v) {
-                if (blue.isAssociated()) {
-                    Log.e("Settings Report", "Click land");
-                    String msg = "L";
-                    msg += "\n";
-                    if (blue.blueWrite(msg)) {
-                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                .show();
-                    }
-                    else {
-                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                .show();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-
-        });
-
-        pid.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (blue.isAssociated()) {
-                    Log.e("Settings Report", "Click pid");
-                    String msg = "p";
-                    msg += "\n";
-                    if (blue.blueWrite(msg)) {
-                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                .show();
-                    }
-                    else {
-                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                .show();
-                    }
-                } else {
-                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-
-        });
-
-        take.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (blue.isAssociated()) {
-                    Log.e("Settings Report", "Click take");
-                    String msg = "a";
-                    msg += "\n";
-                    if (blue.blueWrite(msg)) {
-                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                .show();
-                    } else {
-                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                .show();
-                    }
-                } else {
-                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-
-        });
-
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    blue.turnOn();
-                } else {
-                    blue.turnOff();
-                }
-            }
-        });
-
-        Visible.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v) {
-                blue.getVisibility();
-            }
-        });
-
-        Find.setOnClickListener(new View.OnClickListener() {
+        mProgressDlg.setMessage("Scanning...");
+        mProgressDlg.setCancelable(false);
+        mProgressDlg.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View arg0) {
-                mBluetoothAdapter.startDiscovery();
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+                mBluetoothAdapter.cancelDiscovery();
             }
         });
 
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(getActivity().getApplicationContext(), " Sorry Bluetooth unsupported: ", Toast.LENGTH_SHORT)
+                    .show();
+        } else {
+            land.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (blue.isAssociated()) {
+                        Log.e("Settings Report", "Click land");
+                        String msg = "L";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+
+            });
+
+            pid.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (blue.isAssociated()) {
+                        Log.e("Settings Report", "Click pid");
+                        String msg = "p";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+
+            });
+
+            take.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (blue.isAssociated()) {
+                        Log.e("Settings Report", "Click take");
+                        String msg = "a";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+
+            });
+
+            toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        blue.turnOn();
+                    } else {
+                        blue.turnOff();
+                    }
+                }
+            });
+
+            Visible.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    blue.getVisibility();
+                }
+            });
+
+            Find.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    mBluetoothAdapter.startDiscovery();
+                }
+            });
 
 
-        Scan.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v) {
-                devicesList = blue.getDevices(bluList);
-            }
-        });
+            Scan.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    devicesList = blue.getDevices(bluList);
+                }
+            });
+        }
 
-        Log.e("Settings report","view created.");
+        Log.e("Settings report", "view created.");
         return view;
     }
 
-    @Override
     public void onPause()
     {
         if (mBluetoothAdapter != null) {
@@ -191,9 +200,6 @@ public class Settings extends Fragment
                 mBluetoothAdapter.cancelDiscovery();
             }
         }
-
         super.onPause();
     }
-
-
 }
