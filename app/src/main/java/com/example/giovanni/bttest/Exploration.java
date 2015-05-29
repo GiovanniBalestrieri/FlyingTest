@@ -20,7 +20,7 @@ public class Exploration extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        // Rover Exploration
         View v = inflater.inflate(R.layout.exploration, container, false);
 
         mContentView = v.findViewById(R.id.explo);
