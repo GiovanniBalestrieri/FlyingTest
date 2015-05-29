@@ -37,25 +37,10 @@ import java.util.Set;
 implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
     private static final int REQUEST_ENABLE_BT = 0;
-    /**
-     * The {@link android.support.v4.view.ViewPager} that will display the object collection.
-     */
     ViewPager mViewPager;
     private Button button1;
-
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
-
-    private CPanel cPanel;
-    private Settings settings;
-    private Control control;
     private Connection connection;
     String intentConn = "connection";
     String intentTour = "tour";
@@ -63,12 +48,10 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
     public int connected = 0;
     public int tour = 0;
     NetworkUtil net;
-
+    CPanel cPanel;
 
     public MainActivity() {
         cPanel = new CPanel();
-        settings = new Settings();
-        control = new Control();
     }
 
     @Override
@@ -168,51 +151,37 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 CPanel firstFragment = new CPanel();
                 transaction.replace(R.id.container, firstFragment);
                 transaction.addToBackStack(null);
+                getActionBar().setTitle("CPanel1");
                 transaction.commit();
                 break;
             case 1:
-                if (cPanel.isAdded())
-                {
+                Control control = new Control();
+                if (cPanel.isAdded()) {
                     transaction.hide(cPanel);
-                }
+                }/*
                 if (settings.isAdded())
                 {
                     transaction.hide(settings);
-                }
-                if (control.isAdded())
-                {
-                    transaction.show(control);
-                }
-                else{
-                    transaction.replace(R.id.container, control, "control");
-                }
-                // fragment needs to be added to frame container
-                transaction.commit();
+                }*/
+                transaction.replace(R.id.container, control).commit();
+                getActionBar().setTitle("Control Panel");
                 break;
 
             case 2:
+                Settings settings = new Settings();
                 if (cPanel.isAdded())
                 {
                     transaction.hide(cPanel);
-                }
+                }/*
                 if (control.isAdded())
                 {
                     transaction.hide(control);
-                }
-                if (settings.isAdded())
-                {
-                    transaction.show(settings);
-                }
-                else {
-                    // fragment needs to be added to frame container
-                    transaction.replace(R.id.container, settings, "settings");
-                }
-
-                //transaction.addToBackStack(null);
-                transaction.commit();
+                }*/
+                getActionBar().setTitle("Settings");
+                transaction.replace(R.id.container, settings).commit();
                 break;
 
-            case 3:
+            case 3:/*
                 if (cPanel.isAdded())
                 {
                     transaction.hide(cPanel);
@@ -227,11 +196,13 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                     // if the fragment is already in container
                     transaction.hide(control);
                 }
-
+*/
                 // fragment needs to be added to frame container
                 //transaction.replace(R.id.container, settings, "settings");
                 //transaction.addToBackStack(null);
+                getActionBar().setTitle("Porco Dio Section");
 
+                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
         }

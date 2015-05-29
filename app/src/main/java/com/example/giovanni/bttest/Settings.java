@@ -59,7 +59,7 @@ public class Settings extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.settings, container, false);
+        android.view.View view = inflater.inflate(R.layout.settings, container, false);
         On = (Button) view.findViewById(R.id.turnOnBlu);
         Off = (Button) view.findViewById(R.id.turnOffBlu);
         Off.setText("Turn interface Off");
