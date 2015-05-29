@@ -68,6 +68,8 @@ public class Bluetooth {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             // Device does not support Bluetooth
+            Toast.makeText(ctx, "The device does not support Bluetooth. Attaccati al ca'..."
+                    , Toast.LENGTH_LONG).show();
         }
     }
 
@@ -112,7 +114,8 @@ public class Bluetooth {
         return 1;
     }
 
-    public static ArrayList<HashMap<String, String>> getDevices(ListView list) {
+    public static ArrayList<HashMap<String, String>> getDevices(ListView list)
+    {
         Log.e("Bluetooth Class Report", "Requesting bluetooth devices");
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
@@ -154,7 +157,8 @@ public class Bluetooth {
         return devicesList;
     }
 
-    public static void connect(String uid) throws IOException {
+    public static void connect(String uid) throws IOException
+    {
         BluetoothSocket mmSocket = null;
 
         //UUID uuid = UUID.fromString(uid);
@@ -201,53 +205,6 @@ public class Bluetooth {
         }
     }
 
-    /*
-    public static void connectToTenzo() throws IOException {
-        BluetoothSocket mmSocket = null;
-
-        //UUID uuid = UUID.fromString(uid);
-        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
-
-        // Set up a pointer to the remote node using it's address.
-        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(uid);
-        try {
-            mmSocket = device.createRfcommSocketToServiceRecord(uuid);
-        } catch (IOException e) {
-            // Qualcosa
-            associated = false;
-        }
-        // Cancel discovery because it will slow down the connection
-        mBluetoothAdapter.cancelDiscovery();
-
-        try {
-            mmSocket.connect();
-            associated = true;
-            //beginListenForData();
-            //out.append("\n...Connection established and data link opened...");
-        } catch (IOException e) {
-            try {
-                mmSocket.close();
-                associated = false;
-            } catch (IOException e2) {
-                Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
-                        .show();
-                associated = false;
-            }
-        }
-        try {
-            mmInputStream = mmSocket.getInputStream();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            mmOutputStream = mmSocket.getOutputStream();
-        } catch (IOException e) {
-
-            Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
-        }
-    }
-*/
     public boolean isAssociated() {
         if (associated)
             return true;
@@ -331,4 +288,13 @@ public class Bluetooth {
 
         workerThread.start();
     }
+
+    /*
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(mReceiver);
+
+        super.onDestroy();
+    }
+    */
 }

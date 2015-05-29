@@ -36,7 +36,7 @@ public class Settings extends Fragment
     private static final int REQUEST_ENABLE_BT = 0;
     private static final String TAG_NAME = "name";
     private static final String TAG_ID = "id";
-    private Button On,Off,Visible,Scan;
+    private Button On,Off,Visible,Scan,Find;
     private Button take,pid,land;
     private ListView bluList;
     private ToggleButton toggle;
@@ -65,6 +65,7 @@ public class Settings extends Fragment
         Off.setText("Turn interface Off");
         Visible = (Button) view.findViewById(R.id.visibleBlu);
         Scan = (Button) view.findViewById(R.id.scanBlu);
+        Find = (Button) view.findViewById(R.id.findBlu);
         toggle = (ToggleButton) view.findViewById(R.id.bluOnOff);
         bluList = (ListView) view.findViewById(R.id.blueDevices);
 
@@ -126,18 +127,16 @@ public class Settings extends Fragment
 
         take.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (blue.isAssociated())
-                {
+                if (blue.isAssociated()) {
                     Log.e("Settings Report", "Click take");
                     String msg = "a";
                     msg += "\n";
                     if (blue.blueWrite(msg)) {
                         Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
                                 .show();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                            .show();
+                                .show();
                     }
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
@@ -149,11 +148,9 @@ public class Settings extends Fragment
 
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                {
+                if (isChecked) {
                     blue.turnOn();
-                } else
-                {
+                } else {
                     blue.turnOff();
                 }
             }
@@ -166,6 +163,15 @@ public class Settings extends Fragment
             }
         });
 
+        Find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                mBluetoothAdapter.startDiscovery();
+            }
+        });
+
+
+
         Scan.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
@@ -176,4 +182,18 @@ public class Settings extends Fragment
         Log.e("Settings report","view created.");
         return view;
     }
+
+    @Override
+    public void onPause()
+    {
+        if (mBluetoothAdapter != null) {
+            if (mBluetoothAdapter.isDiscovering()) {
+                mBluetoothAdapter.cancelDiscovery();
+            }
+        }
+
+        super.onPause();
+    }
+
+
 }
