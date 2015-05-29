@@ -28,12 +28,11 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="48dp"
                 android:hint="@string/welcomeTenzo"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="@dimen/VeryBig"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -49,19 +48,7 @@
                 android:src="@drawable/drone" />
 
 
-            <TextView
-                android:id="@+id/connectionLogs"
-                android:layout_marginTop="@dimen/padding_large"
-                android:gravity="center"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="10"
-                android:text="@string/iniMess"
-                android:padding="10dip"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-
-         <Button
+            <Button
                 android:id="@+id/tour"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

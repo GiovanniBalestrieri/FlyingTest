@@ -32,7 +32,7 @@ public class Connection extends  Activity
         setContentView(R.layout.connect);
         tour = (Button) findViewById(R.id.tour);
         connect = (LinearLayout) findViewById(R.id.btnConnect);
-        logs = (TextView) findViewById(R.id.connectionLogs);
+        //logs = (TextView) findViewById(R.id.connectionLogs);
 
 
         final Bluetooth blue = new Bluetooth(getApplicationContext(),this);
