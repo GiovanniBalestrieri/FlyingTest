@@ -67,16 +67,20 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
-        if (NetworkUtil.getConnectivityStatus(this)==0)
-        {
-            Intent conn = new Intent(getApplicationContext(), NoConnection.class);
-            Log.d("Main -> Connection", "No internet connection. Have a good one!");
+        /*
+         *
+         * Uncomment
+         *
+         */
+        //if (NetworkUtil.getConnectivityStatus(this)==0)
+        //{
+         //   Intent conn = new Intent(getApplicationContext(), NoConnection.class);
+         //   Log.d("Main -> Connection", "No internet connection. Have a good one!");
             //conn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(conn);
-            finish();
-        }
-        else
+            //startActivity(conn);
+            //finish();
+        //}
+        //else
         {
             Intent i = getIntent();
             Bundle extras = getIntent().getExtras();
@@ -96,7 +100,7 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
 
             if(connected == 0 && tour == 0)
             {
-                //	Establishes connection with Tenzo
+                //	Establish connection with Tenzo
                 Intent connect = new Intent(getApplicationContext(), Connection.class);
                 Log.d("Main -> Connection", "Not connected to Drone. Have a good one!");
                 startActivity(connect);

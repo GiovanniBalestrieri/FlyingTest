@@ -1,167 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#dcdcdc"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:paddingBottom="3sp"
-        android:paddingTop="25sp"
-        android:paddingLeft="10sp"
-        android:text="@string/bluPar"
-        android:textColor="#000000"
-        android:textSize="15sp" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dip"
-        android:background="#bebebe"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="6dp"
-        />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+    <LinearLayout
+        android:background="#dcdcdc"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toggle"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:layout_alignParentLeft="true" />
+            android:layout_gravity="left"
+            android:paddingBottom="3sp"
+            android:paddingTop="25sp"
+            android:paddingLeft="10sp"
+            android:text="@string/bluPar"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
-        <ToggleButton
-            android:id="@+id/bluOnOff"
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#bebebe"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="6dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toggle"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:layout_alignParentLeft="true" />
+
+            <ToggleButton
+                android:id="@+id/bluOnOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toggle"
+                android:paddingRight="25dp"
+                android:textOn="Bluetooth on"
+                android:textOff="Bluetooth off"
+
+                android:layout_alignParentRight="true"  />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/turnOnBlu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Toggle"
-            android:paddingRight="25dp"
-            android:textOn="Bluetooth on"
-            android:textOff="Bluetooth off"
+            android:onClick="on"
+            android:text="@string/TurnOn" />
 
-            android:layout_alignParentRight="true"  />
-
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/turnOnBlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="on"
-        android:text="@string/TurnOn" />
-
-    <Button
-        android:id="@+id/turnOffBlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="on"
-        android:text="@string/TurnOn" />
+        <Button
+            android:id="@+id/turnOffBlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="on"
+            android:text="@string/TurnOn" />
 
 
-    <Button
-        android:id="@+id/visibleBlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="visible"
-        android:text="@string/visible" />
+        <Button
+            android:id="@+id/visibleBlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="visible"
+            android:text="@string/visible" />
 
-    <Button
-        android:id="@+id/sendBlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/send" />
+        <Button
+            android:id="@+id/sendBlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find"
-        android:id="@+id/findBlu" />
-
-    <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:paddingBottom="4sp"
-        android:paddingTop="15dp"
-        android:orientation="horizontal"
-        android:weightSum="3" >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find"
+            android:id="@+id/findBlu" />
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_width="fill_parent"
-            android:gravity="center"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:paddingBottom="4sp"
+            android:paddingTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="3" >
 
-            <Button
-                android:id="@+id/takeOffButt1"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/takeOffButt1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/takeOff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/takeOff"/>
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/enablePidButt1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/pid"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/landButt1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/Land"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+
+        <EditText
+            android:id="@+id/editBlue"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/enablePidButt1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="@string/pid"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/scanBlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="list"
+            android:text="@string/Scan" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+        <ListView
+            android:id="@+id/blueDevices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" >
 
-            <Button
-                android:id="@+id/landButt1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="@string/Land"/>
-
-        </LinearLayout>
+        </ListView>
 
     </LinearLayout>
 
-
-    <EditText
-        android:id="@+id/editBlue"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/scanBlu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="list"
-        android:text="@string/Scan" />
-
-    <ListView
-        android:id="@+id/blueDevices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible" >
-
-    </ListView>
-
-</LinearLayout>
+</ScrollView>

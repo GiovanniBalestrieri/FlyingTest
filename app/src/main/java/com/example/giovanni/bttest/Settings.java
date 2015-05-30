@@ -90,7 +90,6 @@ public class Settings extends Fragment
         mBluetoothAdapter	= BluetoothAdapter.getDefaultAdapter();
 
         mProgressDlg 		= new ProgressDialog(getActivity());
-
         mProgressDlg.setMessage("Scanning...");
         mProgressDlg.setCancelable(false);
         mProgressDlg.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
@@ -246,7 +245,8 @@ public class Settings extends Fragment
                 newIntent.putParcelableArrayListExtra("device.list", mDeviceList);
 
                 startActivity(newIntent);
-            } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+            } else if (BluetoothDevice.ACTION_FOUND.equals(action))
+            {
                 BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 
                 mDeviceList.add(device);
