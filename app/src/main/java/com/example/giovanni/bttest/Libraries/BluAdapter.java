@@ -1,4 +1,4 @@
-package com.example.giovanni.bttest;
+package com.example.giovanni.bttest.Libraries;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.giovanni.bttest.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

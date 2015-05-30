@@ -150,6 +150,17 @@ public class CPanel extends Fragment
                                                 else if (first=='s') {
                                                     // TODO state.setText()
                                                 }
+                                                else if (first=='K') {
+                                                    blue.associated = true;
+                                                }
+                                                else if (first=='A') {
+                                                    showToast("Ricevuto angle cmd");
+                                                }
+                                                else {
+                                                    // Received non correct message
+                                                    //showToast(data);
+                                                }
+
                                             }
                                         });
                                     } else {
@@ -315,9 +326,47 @@ public class CPanel extends Fragment
                 if (isChecked) {
                     //aRoll.setText("Switch is currently ON");
                     orient.setVisibility(LinearLayout.VISIBLE);
+                    if (blue.isAssociated())
+                    {
+                        Log.e("CPanel Report", "Click Status");
+                        String msg = "t";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                        else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
                 } else {
                     //aRoll.setText("Switch is currently OFF");
                     orient.setVisibility(LinearLayout.GONE);
+                    if (blue.isAssociated())
+                    {
+                        Log.e("CPanel Report", "Click Status");
+                        String msg = "t";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                        else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
                 }
             }
         });
@@ -346,7 +395,7 @@ public class CPanel extends Fragment
                 if (blue.isAssociated())
                 {
                     Log.e("CPanel Report", "Click Status");
-                    String msg = "s";
+                    String msg = "p";
                     msg += "\n";
                     if (blue.blueWrite(msg)) {
                         Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
@@ -406,5 +455,8 @@ public class CPanel extends Fragment
         }
     }
 
+    private void showToast(String message) {
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
 
 }

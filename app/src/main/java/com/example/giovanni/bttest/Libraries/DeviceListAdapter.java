@@ -55,7 +55,7 @@ public class DeviceListAdapter extends BaseAdapter {
 
             holder.nameTv		= (TextView) convertView.findViewById(R.id.tv_name);
             holder.addressTv 	= (TextView) convertView.findViewById(R.id.tv_address);
-            holder.pairBtn		= (Button) convertView.findViewById(R.id.btn_pair);
+            holder.pairBtn		= (Button) convertView.findViewById(R.id.btn_list_dev);
 
             convertView.setTag(holder);
         } else {
@@ -66,7 +66,7 @@ public class DeviceListAdapter extends BaseAdapter {
 
         holder.nameTv.setText(device.getName());
         holder.addressTv.setText(device.getAddress());
-        holder.pairBtn.setText((device.getBondState() == BluetoothDevice.BOND_BONDED) ? "Unpair" : "Pair");
+        holder.pairBtn.setText((device.getBondState() == BluetoothDevice.BOND_BONDED) ? "Connect" : "Pair");
         holder.pairBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

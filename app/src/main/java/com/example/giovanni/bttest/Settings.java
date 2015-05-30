@@ -193,7 +193,20 @@ public class Settings extends Fragment
 
             Scan.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    devicesList = blue.getDevices(bluList);
+                    //devicesList = blue.getDevices(bluList);
+
+                    Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+                    if (pairedDevices == null || pairedDevices.size() == 0)
+                    {
+                        showToast("No Paired Devices Found");
+                    } else
+                    {
+                        ArrayList<BluetoothDevice> list = new ArrayList<BluetoothDevice>();
+                        list.addAll(pairedDevices);
+                        Intent intent = new Intent(getActivity(), DeviceListActivity.class);
+                        intent.putParcelableArrayListExtra("device.list", list);
+                        startActivity(intent);
+                    }
                 }
             });
         }

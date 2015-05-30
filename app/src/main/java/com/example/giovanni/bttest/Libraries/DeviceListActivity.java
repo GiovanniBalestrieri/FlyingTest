@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.giovanni.bttest.Bluetooth;
 import com.example.giovanni.bttest.R;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -36,6 +38,8 @@ public class DeviceListActivity extends Activity
 
         mAdapter		= new DeviceListAdapter(this);
 
+        final Bluetooth blue = new Bluetooth(getApplicationContext(),this);
+
         mAdapter.setData(mDeviceList);
         mAdapter.setListener(new DeviceListAdapter.OnPairButtonClickListener() {
             @Override
@@ -43,15 +47,29 @@ public class DeviceListActivity extends Activity
                 BluetoothDevice device = mDeviceList.get(position);
 
                 if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-                    unpairDevice(device);
-                } else {
-                    showToast("Pairing...");
+                    //unpairDevice(device);
+                    // Connect to the device
+                    BluetoothDevice deviceBlu = mDeviceList.get(position);
+                    try {
+                        if (!blue.isAssociated())
+                        {
+                            blue.connect(deviceBlu.getAddress());
+                            showToast("Handshake");
+                        }
+                        else
+                            showToast("Porco dio");
 
-                    pairDevice(device);
+                }catch(IOException e){
+                    e.printStackTrace();
                 }
             }
-        });
-
+            else{
+                // If the device has not been paired you can start the association
+                showToast("Pairing...");
+                pairDevice(device);
+            }
+        }
+    });
         mListView.setAdapter(mAdapter);
 
         registerReceiver(mPairReceiver, new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));

@@ -13,16 +13,15 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.giovanni.bttest.Libraries.BluAdapter;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.UUID;
-
-import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
  * Created by userk on 07/04/15.
@@ -182,33 +181,38 @@ public class Bluetooth {
         // Cancel discovery because it will slow down the connection
         mBluetoothAdapter.cancelDiscovery();
 
-        try {
-            mmSocket.connect();
-            associated = true;
-            //beginListenForData();
-            //out.append("\n...Connection established and data link opened...");
-        } catch (IOException e) {
+        // If it's not connected then connect
+        if (!mmSocket.isConnected()) {
             try {
-                mmSocket.close();
-                associated = false;
-            } catch (IOException e2) {
-                Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
-                        .show();
-                associated = false;
+                mmSocket.connect();
+                //associated = true;
+                //out.append("\n...Connection established and data link opened...");
+            } catch (IOException e) {
+                try {
+                    mmSocket.close();
+                    associated = false;
+                } catch (IOException e2) {
+                    Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
+                            .show();
+                    associated = false;
+                }
             }
         }
-        try {
-            mmInputStream = mmSocket.getInputStream();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if (mmSocket.isConnected()) {
+            try {
+                mmInputStream = mmSocket.getInputStream();
+                beginListenForData();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            mmOutputStream = mmSocket.getOutputStream();
-            blueWrite("b");
-        } catch (IOException e) {
+            try {
+                mmOutputStream = mmSocket.getOutputStream();
+                blueWrite("b");
+            } catch (IOException e) {
 
-            Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
+                Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
+            }
         }
     }
 
@@ -266,14 +270,27 @@ public class Bluetooth {
                                     System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
                                     final String data = new String(encodedBytes, "US-ASCII");
                                     readBufferPosition = 0;
-
                                     handler.post(new Runnable()
                                     {
                                         public void run()
                                         {
                                             //myLabel.setText(data);
-                                            Toast.makeText(activity.getApplicationContext(), data, Toast.LENGTH_LONG)
-                                                    .show();
+                                            char first = data.charAt(0);
+                                            if (first=='K') {
+                                                associated = true;
+                                                // Send second part of the handshake
+                                                blueWrite("K");
+                                                Toast.makeText(activity.getApplicationContext(), "Associated!", Toast.LENGTH_LONG)
+                                                        .show();
+                                            }
+                                            else if (first=='o') {
+                                            // You are getting orientation information.. shouldn't get there
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(activity.getApplicationContext(), data, Toast.LENGTH_SHORT                                                )
+                                                        .show();
+                                            }
                                         }
                                     });
                                 }
