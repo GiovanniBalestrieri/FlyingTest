@@ -263,6 +263,17 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
+        /*
+        if (item.getItemId() == R.id.Test_Connection) {
+            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+            Intent connect = new Intent(getActivity().getApplicationContext(), AccelOrientExample.class);
+            Log.d("Main -> Connection", "Not connected to Drone. Have a good one!");
+            startActivity(connect);
+            // Closing Main activity
+            return true;
+        }
+        */
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -29,6 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.giovanni.bttest.Utils.AccelOrientExample;
+import com.example.giovanni.bttest.Utils.ConnStatus;
 import com.example.giovanni.bttest.Utils.NetworkUtil;
 import java.util.Set;
 
@@ -136,7 +137,6 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 }
             }
         }
-
     }
 
     @Override
@@ -185,29 +185,17 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks
                 transaction.replace(R.id.container, settings).commit();
                 break;
 
-            case 3:/*
-                if (cPanel.isAdded())
-                {
-                    transaction.hide(cPanel);
-                }
-                if (settings.isAdded())
-                {
-                    // if the fragment is already in container
-                    transaction.hide(settings);
-                }
-                if (control.isAdded())
-                {
-                    // if the fragment is already in container
-                    transaction.hide(control);
-                }
-*/
+            case 3:
+
+
+                ConnStatus statusCon = new ConnStatus();
+
                 // fragment needs to be added to frame container
                 //transaction.replace(R.id.container, settings, "settings");
                 //transaction.addToBackStack(null);
                 getActionBar().setTitle("Porco Dio Section");
 
-                transaction.addToBackStack(null);
-                transaction.commit();
+                transaction.replace(R.id.container, statusCon, "status").commit();
                 break;
         }
     }
