@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.giovanni.bttest.Bluetooth;
+import com.example.giovanni.bttest.MainActivity;
 import com.example.giovanni.bttest.R;
 
 import java.io.IOException;
@@ -22,6 +23,8 @@ import java.util.ArrayList;
  */
 public class DeviceListActivity extends Activity
 {
+    String intentConn = "connection";
+    String intentTour = "tour";
     private ListView mListView;
     private DeviceListAdapter mAdapter;
     private ArrayList<BluetoothDevice> mDeviceList;
@@ -29,59 +32,48 @@ public class DeviceListActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_paired_devices);
 
         mDeviceList		= getIntent().getExtras().getParcelableArrayList("device.list");
-
         mListView		= (ListView) findViewById(R.id.lv_paired);
-
         mAdapter		= new DeviceListAdapter(this);
-
         final Bluetooth blue = new Bluetooth(getApplicationContext(),this);
+
+        mListView.setAdapter(mAdapter);
+        registerReceiver(mPairReceiver, new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
 
         mAdapter.setData(mDeviceList);
         mAdapter.setListener(new DeviceListAdapter.OnPairButtonClickListener() {
             @Override
             public void onPairButtonClick(int position) {
                 BluetoothDevice device = mDeviceList.get(position);
-
-                if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-                    //unpairDevice(device);
+                if (device.getBondState() == BluetoothDevice.BOND_BONDED)
+                {
                     // Connect to the device
                     BluetoothDevice deviceBlu = mDeviceList.get(position);
                     try {
-                        if (!blue.isAssociated())
-                        {
+                        if (!blue.isAssociated()) {
                             blue.connect(deviceBlu.getAddress());
                             showToast("Handshake");
-                        }
-                        else
-                            showToast("Porco dio");
-
-                }catch(IOException e){
-                    e.printStackTrace();
+                            finish();
+                        } else showToast("Porco dio");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // If the device has not been paired you can start the association
+                    showToast("Pairing...");
+                    pairDevice(device);
                 }
             }
-            else{
-                // If the device has not been paired you can start the association
-                showToast("Pairing...");
-                pairDevice(device);
-            }
-        }
-    });
-        mListView.setAdapter(mAdapter);
-
-        registerReceiver(mPairReceiver, new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
+        });
     }
 
     @Override
     public void onDestroy() {
         unregisterReceiver(mPairReceiver);
-
         super.onDestroy();
     }
-
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();

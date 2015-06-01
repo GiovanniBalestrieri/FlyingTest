@@ -364,20 +364,6 @@ public class CPanel extends Fragment
             }
         });
 
-        //TODO
-        // Add a state check and modify
-        //aRoll.setChecked(true);
-
-        //check the current state before we display the screen
-        if(pidSwitch.isChecked())
-        {
-            //orient.setVisibility(LinearLayout.VISIBLE);
-        }
-        else
-        {
-            //orient.setVisibility(LinearLayout.GONE);
-        }
-
         //attach a listener to check for changes in state
         pidSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -388,7 +374,14 @@ public class CPanel extends Fragment
                 if (blue.isAssociated())
                 {
                     Log.e("CPanel Report", "Click Status");
-                    String msg = "p";
+                    String msg;
+                    if(pidSwitch.isChecked())
+                    {
+                         msg = "pe";
+                    }
+                    else {
+                        msg = "pd";
+                    }
                     msg += "\n";
                     if (blue.blueWrite(msg)) {
                         Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)

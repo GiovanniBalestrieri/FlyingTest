@@ -282,9 +282,8 @@ public class Bluetooth {
                                                 blueWrite("K");
                                                 Toast.makeText(activity.getApplicationContext(), "Associated!", Toast.LENGTH_LONG)
                                                         .show();
-                                            }
-                                            else if (first=='o') {
-                                            // You are getting orientation information.. shouldn't get there
+
+                                                stopWorker = true;
                                             }
                                             else
                                             {

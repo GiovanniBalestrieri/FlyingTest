@@ -295,7 +295,6 @@ public class Settings extends Fragment
         }
     };
 
-
     private void showToast(String message) {
         Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
