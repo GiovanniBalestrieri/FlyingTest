@@ -96,6 +96,7 @@
     <string name="bluEx">BluDev</string>
     <string name="bluIDEx">Id Device</string>
     <string name="bluPar">Bluetooth Settings</string>
+    <string name="blurate">Rate</string>
     <string name="check">Check</string>
     <!-- From: file:/home/userk/AndroidStudioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_strings.xml -->
     <eat-comment/>

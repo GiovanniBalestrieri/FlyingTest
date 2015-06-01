@@ -21,7 +21,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -47,6 +49,8 @@ public class Settings extends Fragment
     private Button take,pid,land;
     private ListView bluList;
     private ToggleButton toggle;
+    private EditText rate;
+    private Button sendRate;
 
     private BluetoothSocket mmSocket;
     private BluetoothDevice mmDevice;
@@ -77,10 +81,13 @@ public class Settings extends Fragment
         Find = (Button) view.findViewById(R.id.findBlu);
         toggle = (ToggleButton) view.findViewById(R.id.bluOnOff);
         bluList = (ListView) view.findViewById(R.id.blueDevices);
+        sendRate = (Button) view.findViewById(R.id.sendRateBtn);
 
         take = (Button) view.findViewById(R.id.takeOffButt1);
         pid = (Button) view.findViewById(R.id.enablePidButt1);
         land = (Button) view.findViewById(R.id.landButt1);
+        rate = (EditText) view.findViewById(R.id.bluRateText);
+        rate.setText("angle transmission rate", TextView.BufferType.EDITABLE);
 
         On.setVisibility(view.GONE);
         Off.setVisibility(view.GONE);
@@ -147,6 +154,27 @@ public class Settings extends Fragment
 
             });
 
+            sendRate.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if (blue.isAssociated()) {
+                        Log.e("Settings Report", "Click pid");
+                        String msg = "r"+rate.getText();
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), "Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+
+            });
+
             take.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (blue.isAssociated()) {
@@ -196,11 +224,9 @@ public class Settings extends Fragment
                     //devicesList = blue.getDevices(bluList);
 
                     Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-                    if (pairedDevices == null || pairedDevices.size() == 0)
-                    {
+                    if (pairedDevices == null || pairedDevices.size() == 0) {
                         showToast("No Paired Devices Found");
-                    } else
-                    {
+                    } else {
                         ArrayList<BluetoothDevice> list = new ArrayList<BluetoothDevice>();
                         list.addAll(pairedDevices);
                         Intent intent = new Intent(getActivity(), DeviceListActivity.class);

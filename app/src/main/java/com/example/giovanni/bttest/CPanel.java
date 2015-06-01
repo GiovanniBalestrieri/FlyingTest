@@ -111,54 +111,47 @@ public class CPanel extends Fragment
                                         handler.post(new Runnable() {
                                             public void run() {
                                                 log.setText(data);
-                                                //Toast.makeText(getActivity().getApplicationContext(), data, Toast.LENGTH_LONG)
-                                                //        .show();
-                                                char first = data.charAt(0);
-                                                if (first=='o') {
-                                                    // Orientation status
-                                                    String values[] = data.replace("o,","").split(",");
-                                                    String v1 = "";
-                                                    String v2 = "";
-                                                    String v3 = "";
-                                                    if(values != null && values.length == 4) {
-                                                        v1 = values[0];
-                                                        v2 = values[1];
-                                                        v3 = values[2];
-                                                    }
-                                                    roll.setText(v1);
-                                                    pitch.setText(v2);
-                                                    yaw.setText(v3);
-                                                }
-                                                else if (first=='c')
+                                                if (data.length() >= 1)
                                                 {
-                                                    // Commands
-                                                    String values[] = data.replace("c","").split(",");
-                                                    String v1 = "";
-                                                    if(values != null && values.length == 3) {
-                                                        v1 =  values[1];
-                                                        if (v1.equals("p"))
-                                                        {
-                                                            warning.setTextColor(getResources().getColor(R.color.green));
-                                                            warning.setText("Pid Enabled");
-                                                        }else
-                                                        {
-                                                            warning.setTextColor(getResources().getColor(R.color.red));
-                                                            warning.setText("Pid Disabled");
+                                                    char first = data.charAt(0);
+                                                    if (first == 'o') {
+                                                        // Orientation status
+                                                        String values[] = data.replace("o,", "").split(",");
+                                                        String v1 = "";
+                                                        String v2 = "";
+                                                        String v3 = "";
+                                                        if (values != null && values.length == 4) {
+                                                            v1 = values[0];
+                                                            v2 = values[1];
+                                                            v3 = values[2];
                                                         }
+                                                        roll.setText(v1);
+                                                        pitch.setText(v2);
+                                                        yaw.setText(v3);
+                                                    } else if (first == 'c') {
+                                                        // Commands
+                                                        String values[] = data.replace("c", "").split(",");
+                                                        String v1 = "";
+                                                        if (values != null && values.length == 3) {
+                                                            v1 = values[1];
+                                                            if (v1.equals("p")) {
+                                                                warning.setTextColor(getResources().getColor(R.color.green));
+                                                                warning.setText("Pid Enabled");
+                                                            } else {
+                                                                warning.setTextColor(getResources().getColor(R.color.red));
+                                                                warning.setText("Pid Disabled");
+                                                            }
+                                                        }
+                                                    } else if (first == 's') {
+                                                        // TODO state.setText()
+                                                    } else if (first == 'K') {
+                                                        blue.associated = true;
+                                                    } else if (first == 'A') {
+                                                        showToast("Ricevuto angle cmd");
+                                                    } else {
+                                                        // Received non correct message
+                                                        //showToast(data);
                                                     }
-                                                }
-                                                else if (first=='s') {
-                                                    // TODO state.setText()
-                                                }
-                                                else if (first=='K') {
-                                                    blue.associated = true;
-                                                }
-                                                else if (first=='A') {
-                                                    showToast("Ricevuto angle cmd");
-                                                }
-                                                else {
-                                                    // Received non correct message
-                                                    //showToast(data);
                                                 }
 
                                             }

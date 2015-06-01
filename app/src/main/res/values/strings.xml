@@ -40,6 +40,7 @@
     <!-- Settings -->
 
     <string name="bluPar">Bluetooth Settings</string>
+    <string name="blurate">Rate</string>
     <string name="TurnOn">Turn On</string>
     <string name="visible">Visible</string>
     <string name="Scan">Paired</string>
