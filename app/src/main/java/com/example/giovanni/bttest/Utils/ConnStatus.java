@@ -13,7 +13,6 @@ import com.example.giovanni.bttest.R;
  * Created by userk on 01/06/15.
  */
 public class ConnStatus extends Fragment {
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -22,7 +21,6 @@ public class ConnStatus extends Fragment {
 
         return view;
     }
-
 
     private void showToast(String message) {
         Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();

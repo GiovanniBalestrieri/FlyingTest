@@ -52,6 +52,7 @@ public class Connection extends  Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect);
         tour = (Button) findViewById(R.id.tour);
+        tour.setVisibility(View.GONE);
         connect = (LinearLayout) findViewById(R.id.btnConnect);
         //logs = (TextView) findViewById(R.id.connectionLogs);
 
@@ -78,41 +79,27 @@ public class Connection extends  Activity
                     .show();
         } else {
             int con;
-            if (blue.isAssociated()) {
-                con = 1;
-                Intent i = new Intent(getApplicationContext(),
-                        MainActivity.class);
-                Bundle extras = new Bundle();
-                extras.putString(intentConn, String.valueOf(con));
-                extras.putString(intentTour, "0");
-                i.putExtras(extras);
-                startActivity(i);
-                // Close Registration View
-                finish();
-            } else
+            connect.setOnClickListener(new View.OnClickListener()
             {
-                con = 0;
-                connect.setOnClickListener(new View.OnClickListener()
+                public void onClick(View v)
                 {
-                    public void onClick(View v)
-                    {
-                        if (blue.isAssociated()) {
-                            Log.e("CPanel Report", "Click Land");
-                            String msg = "L";
-                            msg += "\n";
-                            if (blue.blueWrite(msg)) {
-                                Toast.makeText(getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                        .show();
-                            } else {
-                                Toast.makeText(getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                        .show();
-                            }
-                        } else {
-                            mBluetoothAdapter.startDiscovery();
-                        }
-                    }
-                });
-            }
+                    int con;
+                    //mBluetoothAdapter.startDiscovery();int con;
+                    if (blue.isAssociated())
+                        con = 1;
+                    else
+                        con = 0;
+                    Intent i = new Intent(getApplicationContext(),
+                            MainActivity.class);
+                    Bundle extras = new Bundle();
+                    extras.putString(intentConn, String.valueOf(con));
+                    extras.putString(intentTour,"1");
+                    i.putExtras(extras);
+                    startActivity(i);
+                    // Close Registration View
+                    finish();
+                }
+            });
         }
 
         tour.setOnClickListener(new View.OnClickListener()

@@ -52,11 +52,9 @@ public class DeviceListActivity extends Activity
                     // Connect to the device
                     BluetoothDevice deviceBlu = mDeviceList.get(position);
                     try {
-                        if (!blue.isAssociated()) {
                             blue.connect(deviceBlu.getAddress());
                             showToast("Handshake");
                             finish();
-                        } else showToast("Porco dio");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

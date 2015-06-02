@@ -146,8 +146,9 @@ public class CPanel extends Fragment
                                                         // TODO state.setText()
                                                     } else if (first == 'K') {
                                                         blue.associated = true;
+                                                        blue.blueWrite("K");
                                                     } else if (first == 'A') {
-                                                        showToast("Ricevuto angle cmd");
+                                                        showToast("Ack Received");
                                                     } else {
                                                         // Received non correct message
                                                         //showToast(data);
@@ -180,8 +181,8 @@ public class CPanel extends Fragment
                     String msg = "a";
                     msg += "\n";
                     if (blue.blueWrite(msg)) {
-                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                .show();
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
                     }
                     else {
                         Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
@@ -205,8 +206,8 @@ public class CPanel extends Fragment
                     String msg = "L";
                     msg += "\n";
                     if (blue.blueWrite(msg)) {
-                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                .show();
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
                     }
                     else {
                         Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
@@ -315,52 +316,37 @@ public class CPanel extends Fragment
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
-                if (isChecked) {
-                    //aRoll.setText("Switch is currently ON");
-                    orient.setVisibility(LinearLayout.VISIBLE);
-                    if (blue.isAssociated())
-                    {
-                        Log.e("CPanel Report", "Click Status");
-                        String msg = "t";
-                        msg += "\n";
-                        if (blue.blueWrite(msg)) {
-                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                        else {
-                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    }
+                                         boolean isChecked)
+            {
+                //aRoll.setText("Switch is currently ON");
+                orient.setVisibility(LinearLayout.VISIBLE);
+                if (blue.isAssociated())
+                {
+                    String msg;
+                    Log.e("CPanel Report", "Click Status");
+                    if(orientSwitch.isChecked())
+                        msg = "te";
                     else
                     {
-                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        msg = "td";
+                        orient.setVisibility(LinearLayout.GONE);
+                    }
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
                                 .show();
                     }
-                } else {
-                    //aRoll.setText("Switch is currently OFF");
-                    orient.setVisibility(LinearLayout.GONE);
-                    if (blue.isAssociated())
-                    {
-                        Log.e("CPanel Report", "Click Status");
-                        String msg = "t";
-                        msg += "\n";
-                        if (blue.blueWrite(msg)) {
-                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                        else {
-                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
                                 .show();
                     }
                 }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+
             }
         });
 

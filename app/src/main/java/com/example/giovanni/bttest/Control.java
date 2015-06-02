@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import java.io.IOException;
@@ -23,6 +26,11 @@ public class Control extends Fragment {
     InputStream inputStream;
     private LinearLayout aRLL, wRLL, aPLL, wPLL, aYLL, wYLL;
     private Switch aRoll,wRoll,aPitch,wPitch,aYaw,wYaw;
+    private SeekBar KpAR,KiAR,KdAR,KpAP,KiAP,KdAP,KpAY,KiAY,KdAY;
+    private SeekBar KpwR,KiwR,KdwR,KpwP,KiwP,KdwP,KpwY,KiwY,KdwY;
+    private TextView KpARVal,KiARVal,KdARVal,KpAPVal,KiAPVal,KdAPVal,KpAYVal,KiAYVal,KdAYVal;
+    private TextView KpwRVal,KiwRVal,KdwRVal,KpwPVal,KiwPVal,KdwPVal,KpwYVal,KiwYVal,KdwYVal;
+    private Button ARRec,ARSen,APRec,APSen,AYRec,AYSen,WRRec,WRSen,WPRec,WPSen,WYRec,WYSen;
 
     static Handler handler;
     static final byte delimiter = 10;
@@ -62,6 +70,57 @@ public class Control extends Fragment {
         wPLL = (LinearLayout) v.findViewById(R.id.WPitchView);
         aYLL = (LinearLayout) v.findViewById(R.id.AYawView);
         wYLL = (LinearLayout) v.findViewById(R.id.WYawView);
+
+        // SeekBars
+
+        // Angular Roll
+        KpAR = (SeekBar) v.findViewById(R.id.KpARseek);
+        KdAR = (SeekBar) v.findViewById(R.id.KdARseek);
+        KiAR = (SeekBar) v.findViewById(R.id.KiARseek);
+        // Angular Pitch
+        KpAP = (SeekBar) v.findViewById(R.id.KpAPseek);
+        KdAP = (SeekBar) v.findViewById(R.id.KdAPseek);
+        KiAP = (SeekBar) v.findViewById(R.id.KiAPseek);
+        // Angular Yaw
+        KpAY = (SeekBar) v.findViewById(R.id.KpAYseek);
+        KdAY = (SeekBar) v.findViewById(R.id.KdAYseek);
+        KiAY = (SeekBar) v.findViewById(R.id.KiAYseek);
+        // w Vel Roll
+        KpwR = (SeekBar) v.findViewById(R.id.KpWRseek);
+        KdwR = (SeekBar) v.findViewById(R.id.KdWRseek);
+        KiwR = (SeekBar) v.findViewById(R.id.KiWRseek);
+        // w Vel Pitch
+        KpwP = (SeekBar) v.findViewById(R.id.KpWPseek);
+        KdwP = (SeekBar) v.findViewById(R.id.KdWPseek);
+        KiwP = (SeekBar) v.findViewById(R.id.KiWPseek);
+        // w Vel Yaw
+        KpwY = (SeekBar) v.findViewById(R.id.KpWYseek);
+        KdwY = (SeekBar) v.findViewById(R.id.KdWYseek);
+        KiwY = (SeekBar) v.findViewById(R.id.KiWYseek);
+
+        // TextViews
+        // Angular positions
+        KpARVal = (TextView) v.findViewById(R.id.KpARval);
+        KdARVal = (TextView) v.findViewById(R.id.KdARval);
+        KiARVal = (TextView) v.findViewById(R.id.KiARval);
+        KpAPVal = (TextView) v.findViewById(R.id.KpAPval);
+        KpAPVal = (TextView) v.findViewById(R.id.KdAPval);
+        KpAPVal = (TextView) v.findViewById(R.id.KiAPval);
+        KpAYVal = (TextView) v.findViewById(R.id.KpAYval);
+        KpAYVal = (TextView) v.findViewById(R.id.KdAYval);
+        KpAYVal = (TextView) v.findViewById(R.id.KiAYval);
+        // Angular Speed
+        KpwRVal = (TextView) v.findViewById(R.id.KpWRVal);
+        KdwRVal = (TextView) v.findViewById(R.id.KdWRVal);
+        KiwRVal = (TextView) v.findViewById(R.id.KiWRVal);
+        KpwPVal = (TextView) v.findViewById(R.id.KpWPval);
+        KpwPVal = (TextView) v.findViewById(R.id.KdWPval);
+        KpwPVal = (TextView) v.findViewById(R.id.KiWPval);
+        KpwYVal = (TextView) v.findViewById(R.id.KpWYval);
+        KpwYVal = (TextView) v.findViewById(R.id.KdWYval);
+        KpwYVal = (TextView) v.findViewById(R.id.KiWYval);
+
+
 
         //TODO
         // Add a state check and modify
