@@ -3,6 +3,7 @@ package com.example.giovanni.bttest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.io.IOException;
@@ -122,6 +124,8 @@ public class Control extends Fragment {
 
 
 
+
+
         //TODO
         // Add a state check and modify
         //aRoll.setChecked(true);
@@ -143,7 +147,24 @@ public class Control extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+                    if (blue.isAssociated()) {
+                        Log.e("Control Report", "enabling Roll PID");
+                        String msg = "s";
+                        msg += "\n";
+                        if (blue.blueWrite(msg)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                        else {
+                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                                .show();
+                    }
                     aRLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
