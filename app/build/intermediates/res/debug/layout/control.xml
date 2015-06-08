@@ -165,8 +165,8 @@
                                 android:orientation="vertical"
                                 android:id="@+id/ARollView"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:visibility="gone">
+                                android:layout_height="wrap_content">
+                                <!--android:visibility="gone"-->
 
 
                                 <RelativeLayout
@@ -175,14 +175,14 @@
                                     android:layout_height="wrap_content">
 
                                     <Button
-                                        android:id="@+id/button1"
+                                        android:id="@+id/ARReceive"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/Receive"
                                         android:layout_alignParentLeft="true" />
 
                                     <Button
-                                        android:id="@+id/button2"
+                                        android:id="@+id/ARSend"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/Send"
@@ -219,7 +219,7 @@
 										    <TextView
 							                    android:layout_marginLeft="10dp"
 								            	android:layout_marginRight="10dp"
-							                    android:id="@+id/KpARVal"
+							                    android:id="@+id/KpARval"
 							                    android:layout_width="wrap_content"
 							                    android:layout_height="wrap_content"
 							                    android:text="0.15"
@@ -249,7 +249,7 @@
 										    <TextView
 							                    android:layout_marginLeft="10dp"
 								            	android:layout_marginRight="10dp"
-							                    android:id="@+id/KiARVal"
+							                    android:id="@+id/KiARval"
 							                    android:layout_width="wrap_content"
 							                    android:layout_height="wrap_content"
 							                    android:paddingBottom="4sp"
@@ -279,7 +279,7 @@
 											    <TextView
 								                    android:layout_marginLeft="10dp"
 									            	android:layout_marginRight="10dp"
-								                    android:id="@+id/KdARVal"
+								                    android:id="@+id/KdARval"
 								                    android:layout_width="wrap_content"
 								                    android:layout_height="wrap_content"
 								                    android:paddingBottom="4sp"

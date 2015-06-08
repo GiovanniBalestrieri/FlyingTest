@@ -453,6 +453,8 @@ containing a value of this type.
         public static final int APSR=0x7f070038;
         public static final int APSend=0x7f07003a;
         public static final int APitchView=0x7f070037;
+        public static final int ARReceive=0x7f070028;
+        public static final int ARSend=0x7f070029;
         public static final int ARollView=0x7f070026;
         public static final int AYReceive=0x7f07004a;
         public static final int AYSR=0x7f070049;
@@ -462,8 +464,8 @@ containing a value of this type.
         public static final int KdAPseek=0x7f070046;
         public static final int KdAPval=0x7f070040;
         public static final int KdAR=0x7f07002e;
-        public static final int KdARVal=0x7f07002f;
         public static final int KdARseek=0x7f070035;
+        public static final int KdARval=0x7f07002f;
         public static final int KdAY=0x7f070050;
         public static final int KdAYseek=0x7f070057;
         public static final int KdAYval=0x7f070051;
@@ -480,8 +482,8 @@ containing a value of this type.
         public static final int KiAPseek=0x7f070044;
         public static final int KiAPval=0x7f07003e;
         public static final int KiAR=0x7f07002c;
-        public static final int KiARVal=0x7f07002d;
         public static final int KiARseek=0x7f070033;
+        public static final int KiARval=0x7f07002d;
         public static final int KiAY=0x7f07004e;
         public static final int KiAYseek=0x7f070055;
         public static final int KiAYval=0x7f07004f;
@@ -498,8 +500,8 @@ containing a value of this type.
         public static final int KpAPseek=0x7f070042;
         public static final int KpAPval=0x7f07003c;
         public static final int KpAR=0x7f07002a;
-        public static final int KpARVal=0x7f07002b;
         public static final int KpARseek=0x7f070031;
+        public static final int KpARval=0x7f07002b;
         public static final int KpAY=0x7f07004c;
         public static final int KpAYseek=0x7f070053;
         public static final int KpAYval=0x7f07004d;
@@ -547,8 +549,6 @@ containing a value of this type.
         public static final int btnConnect=0x7f070020;
         public static final int btn_list_dev=0x7f0700aa;
         public static final int btn_pair=0x7f0700ad;
-        public static final int button1=0x7f070028;
-        public static final int button2=0x7f070029;
         public static final int buyButton=0x7f07000d;
         public static final int buy_now=0x7f070012;
         public static final int buy_with_google=0x7f070011;

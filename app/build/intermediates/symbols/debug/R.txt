@@ -130,6 +130,8 @@ int id APReceive 0x7f070039
 int id APSR 0x7f070038
 int id APSend 0x7f07003a
 int id APitchView 0x7f070037
+int id ARReceive 0x7f070028
+int id ARSend 0x7f070029
 int id ARollView 0x7f070026
 int id AYReceive 0x7f07004a
 int id AYSR 0x7f070049
@@ -139,8 +141,8 @@ int id KdAP 0x7f07003f
 int id KdAPseek 0x7f070046
 int id KdAPval 0x7f070040
 int id KdAR 0x7f07002e
-int id KdARVal 0x7f07002f
 int id KdARseek 0x7f070035
+int id KdARval 0x7f07002f
 int id KdAY 0x7f070050
 int id KdAYseek 0x7f070057
 int id KdAYval 0x7f070051
@@ -157,8 +159,8 @@ int id KiAP 0x7f07003d
 int id KiAPseek 0x7f070044
 int id KiAPval 0x7f07003e
 int id KiAR 0x7f07002c
-int id KiARVal 0x7f07002d
 int id KiARseek 0x7f070033
+int id KiARval 0x7f07002d
 int id KiAY 0x7f07004e
 int id KiAYseek 0x7f070055
 int id KiAYval 0x7f07004f
@@ -175,8 +177,8 @@ int id KpAP 0x7f07003b
 int id KpAPseek 0x7f070042
 int id KpAPval 0x7f07003c
 int id KpAR 0x7f07002a
-int id KpARVal 0x7f07002b
 int id KpARseek 0x7f070031
+int id KpARval 0x7f07002b
 int id KpAY 0x7f07004c
 int id KpAYseek 0x7f070053
 int id KpAYval 0x7f07004d
@@ -224,8 +226,6 @@ int id btnCalls 0x7f0700a5
 int id btnConnect 0x7f070020
 int id btn_list_dev 0x7f0700aa
 int id btn_pair 0x7f0700ad
-int id button1 0x7f070028
-int id button2 0x7f070029
 int id buyButton 0x7f07000d
 int id buy_now 0x7f070012
 int id buy_with_google 0x7f070011

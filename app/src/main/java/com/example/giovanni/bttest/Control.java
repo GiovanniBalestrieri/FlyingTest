@@ -144,35 +144,37 @@ public class Control extends Fragment {
         aRoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
-                if(isChecked){
-                    if (blue.isAssociated()) {
-                        Log.e("Control Report", "enabling Roll PID");
-                        String msg = "s";
-                        msg += "\n";
-                        if (blue.blueWrite(msg)) {
-                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                        else {
-                            Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    }
-                    else
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("Control Report", "enabling Roll PID");
+                    String msg = "p";
+                    msg += "ar";if(isChecked)
                     {
-                        Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        msg += "e";
+                        aRLL.setVisibility(LinearLayout.VISIBLE);
+                    }else{
+                        //aRoll.setText("Switch is currently OFF");
+                        msg += "d";
+                        aRLL.setVisibility(LinearLayout.GONE);
+                    }
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
                                 .show();
                     }
-                    aRLL.setVisibility(LinearLayout.VISIBLE);
-                }else{
-                    //aRoll.setText("Switch is currently OFF");
-                    aRLL.setVisibility(LinearLayout.GONE);
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
                 }
             }
         });
-
 
         //TODO
         // Add a state check and modify
@@ -314,18 +316,91 @@ public class Control extends Fragment {
             }
         });
 
-        /*
+        KpAR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                KpARVal.setTextSize(progress);
+            }
+        });
+
+        KdAR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                KdARVal.setTextSize(progress);
+            }
+        });
+
+        KiAR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                KiARVal.setTextSize(progress);
+            }
+        });
+
+        inputStream = blue.getInput();
+
+        final byte delimiter = 10; //This is the ASCII code for a newline character
+        handler = new Handler();
+        stopWorker = false;
+        readBufferPosition = 0;
+        readBuffer = new byte[512];
+
         if (blue.isAssociated())
         {
-            workerThread = new Thread(new Runnable() {
-                public void run() {
-                    while (!Thread.currentThread().isInterrupted() && !stopWorker) {
-                        try {
+            workerThread = new Thread(new Runnable()
+            {
+                public void run()
+                {
+                    while (!Thread.currentThread().isInterrupted() && !stopWorker)
+                    {
+                        try
+                        {
                             int bytesAvailable = inputStream.available();
-                            if (bytesAvailable > 0) {
+                            if (bytesAvailable > 0)
+                            {
                                 byte[] packetBytes = new byte[bytesAvailable];
                                 inputStream.read(packetBytes);
-                                for (int i = 0; i < bytesAvailable; i++) {
+                                for (int i = 0; i < bytesAvailable; i++)
+                                {
                                     byte b = packetBytes[i];
                                     if (b == delimiter) {
                                         byte[] encodedBytes = new byte[readBufferPosition];
@@ -335,41 +410,58 @@ public class Control extends Fragment {
 
                                         handler.post(new Runnable() {
                                             public void run() {
-                                                log.setText(data);
-                                                //Toast.makeText(getActivity().getApplicationContext(), data, Toast.LENGTH_LONG)
-                                                //        .show();
-                                                char first = data.charAt(0);
-                                                if (first == 'o') {
-                                                    // Orientation status
-                                                    String values[] = data.replace("o,", "").split(",");
-                                                    String v1 = "";
-                                                    String v2 = "";
-                                                    String v3 = "";
-                                                    if (values != null && values.length == 4) {
-                                                        v1 = values[0];
-                                                        v2 = values[1];
-                                                        v3 = values[2];
-                                                    }
-                                                    roll.setText(v1);
-                                                    pitch.setText(v2);
-                                                    yaw.setText(v3);
-                                                } else if (first == 'c') {
-                                                    // Commands
-                                                    String values[] = data.replace("c", "").split(",");
-                                                    String v1 = "";
-                                                    if (values != null && values.length == 3) {
-                                                        v1 = values[1];
-                                                        if (v1.equals("p")) {
-                                                            warning.setTextColor(getResources().getColor(R.color.green));
-                                                            warning.setText("Pid Enabled");
-                                                        } else {
-                                                            warning.setTextColor(getResources().getColor(R.color.red));
-                                                            warning.setText("Pid Disabled");
+                                                if (data.length() >= 1)
+                                                {
+                                                    char first = data.charAt(0);
+                                                    if (first == 's') {
+                                                        // Orientation status
+                                                        String values[] = data.replace("o,", "").split(",");
+                                                        String v1 = "";
+                                                        String v2 = "";
+                                                        String v3 = "";
+                                                        String v4 = "";
+                                                        String v5 = "";
+                                                        String kp = "";
+                                                        String ki = "";
+                                                        String kd = "";
+                                                        if (values != null && values.length == 5) {
+                                                            v1 = values[0];
+                                                            v2 = values[1];
+                                                            v3 = values[2];
+                                                            v4 = values[3];
                                                         }
+                                                        else if (values != null && values.length == 8) {
+                                                            v1 = values[0];
+                                                            v2 = values[1];
+                                                            v3 = values[2];
+                                                            v4 = values[3];
+                                                            v5 = values[4];
+                                                            kp = values[5];
+                                                            ki = values[6];
+                                                        }else if (values != null && values.length == 9) {
+                                                            v1 = values[0];
+                                                            v2 = values[1];
+                                                            v3 = values[2];
+                                                            v4 = values[3];
+                                                            v5 = values[4];
+                                                            kp = values[5];
+                                                            ki = values[6];
+                                                            kd = values[6];
+                                                            KpARVal.setText(kp);
+                                                            KiARVal.setText(ki);
+                                                            KdARVal.setText(kd);
+                                                            KpAR.setProgress(Integer.parseInt(kp));
+                                                            KiAR.setProgress(Integer.parseInt(ki));
+                                                            KdAR.setProgress(Integer.parseInt(kd));
+                                                        }
+                                                        showToast(kp);
+                                                        // Set linear scroll
+                                                    } else {
+                                                        // Received non correct message
+                                                        showToast(data);
                                                     }
-                                                } else if (first == 's') {
-                                                    // TODO state.setText()
                                                 }
+
                                             }
                                         });
                                     } else {
@@ -386,7 +478,11 @@ public class Control extends Fragment {
             });
             workerThread.start();
         }
-        */
         return v;
     }
+
+    private void showToast(String message) {
+        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
 }
