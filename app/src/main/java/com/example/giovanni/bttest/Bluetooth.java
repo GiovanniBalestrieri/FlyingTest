@@ -190,7 +190,7 @@ public class Bluetooth {
             } catch (IOException e) {
                 try {
                     mmSocket.close();
-                    associated = false;
+                    //associated = false;
                 } catch (IOException e2) {
                     Toast.makeText(activity.getApplicationContext(), "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".", Toast.LENGTH_LONG)
                             .show();

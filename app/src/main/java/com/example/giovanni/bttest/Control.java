@@ -331,8 +331,8 @@ public class Control extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // TODO Auto-generated method stub
-
-                KpARVal.setTextSize(progress);
+                float val = (float) progress/100;
+                KpARVal.setText(Float.toString(val));
             }
         });
 
@@ -352,7 +352,8 @@ public class Control extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                 // TODO Auto-generated method stub
 
-                KdARVal.setTextSize(progress);
+                float val = (float) progress/100;
+                KdARVal.setText(Float.toString(val));
             }
         });
 
@@ -372,7 +373,29 @@ public class Control extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
                 // TODO Auto-generated method stub
 
-                KiARVal.setTextSize(progress);
+                float val = (float) progress/100;
+                KiARVal.setText(Float.toString(val));
+            }
+        });
+
+        KdAP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KpAPVal.setText(Float.toString(val));
             }
         });
 
@@ -415,15 +438,15 @@ public class Control extends Fragment {
                                                     char first = data.charAt(0);
                                                     if (first == 's') {
                                                         // Orientation status
-                                                        String values[] = data.replace("o,", "").split(",");
+                                                        String values[] = data.replace("s,", "").split(",");
                                                         String v1 = "";
                                                         String v2 = "";
                                                         String v3 = "";
                                                         String v4 = "";
                                                         String v5 = "";
-                                                        String kp = "";
-                                                        String ki = "";
-                                                        String kd = "";
+                                                        String kpF = "";
+                                                        String kiF = "";
+                                                        String kdF = "";
                                                         if (values != null && values.length == 5) {
                                                             v1 = values[0];
                                                             v2 = values[1];
@@ -435,27 +458,22 @@ public class Control extends Fragment {
                                                             v2 = values[1];
                                                             v3 = values[2];
                                                             v4 = values[3];
-                                                            v5 = values[4];
-                                                            kp = values[5];
-                                                            ki = values[6];
-                                                        }else if (values != null && values.length == 9) {
-                                                            v1 = values[0];
-                                                            v2 = values[1];
-                                                            v3 = values[2];
-                                                            v4 = values[3];
-                                                            v5 = values[4];
-                                                            kp = values[5];
-                                                            ki = values[6];
-                                                            kd = values[6];
-                                                            KpARVal.setText(kp);
-                                                            KiARVal.setText(ki);
-                                                            KdARVal.setText(kd);
-                                                            KpAR.setProgress(Integer.parseInt(kp));
-                                                            KiAR.setProgress(Integer.parseInt(ki));
-                                                            KdAR.setProgress(Integer.parseInt(kd));
+                                                            if (0 != Integer.parseInt(v4))
+                                                            {
+                                                                kpF = values[4];
+                                                                kiF = values[5];
+                                                                kdF = values[6];
+                                                                KpARVal.setText(kpF);
+                                                                KiARVal.setText(kiF);
+                                                                KdARVal.setText(kdF);
+                                                                int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                KpAR.setProgress(kp);
+                                                                KiAR.setProgress(ki);
+                                                                KdAR.setProgress(kd);
+                                                            }
                                                         }
-                                                        showToast(kp);
-                                                        // Set linear scroll
                                                     } else {
                                                         // Received non correct message
                                                         showToast(data);
