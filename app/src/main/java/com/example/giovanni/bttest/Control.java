@@ -106,21 +106,21 @@ public class Control extends Fragment {
         KdARVal = (TextView) v.findViewById(R.id.KdARval);
         KiARVal = (TextView) v.findViewById(R.id.KiARval);
         KpAPVal = (TextView) v.findViewById(R.id.KpAPval);
-        KpAPVal = (TextView) v.findViewById(R.id.KdAPval);
-        KpAPVal = (TextView) v.findViewById(R.id.KiAPval);
+        KdAPVal = (TextView) v.findViewById(R.id.KdAPval);
+        KiAPVal = (TextView) v.findViewById(R.id.KiAPval);
         KpAYVal = (TextView) v.findViewById(R.id.KpAYval);
-        KpAYVal = (TextView) v.findViewById(R.id.KdAYval);
-        KpAYVal = (TextView) v.findViewById(R.id.KiAYval);
+        KdAYVal = (TextView) v.findViewById(R.id.KdAYval);
+        KiAYVal = (TextView) v.findViewById(R.id.KiAYval);
         // Angular Speed
         KpwRVal = (TextView) v.findViewById(R.id.KpWRVal);
         KdwRVal = (TextView) v.findViewById(R.id.KdWRVal);
         KiwRVal = (TextView) v.findViewById(R.id.KiWRVal);
         KpwPVal = (TextView) v.findViewById(R.id.KpWPval);
-        KpwPVal = (TextView) v.findViewById(R.id.KdWPval);
-        KpwPVal = (TextView) v.findViewById(R.id.KiWPval);
+        KdwPVal = (TextView) v.findViewById(R.id.KdWPval);
+        KiwPVal = (TextView) v.findViewById(R.id.KiWPval);
         KpwYVal = (TextView) v.findViewById(R.id.KpWYval);
-        KpwYVal = (TextView) v.findViewById(R.id.KdWYval);
-        KpwYVal = (TextView) v.findViewById(R.id.KiWYval);
+        KdwYVal = (TextView) v.findViewById(R.id.KdWYval);
+        KiwYVal = (TextView) v.findViewById(R.id.KiWYval);
 
         //Buttons
         ARRec = (Button) v.findViewById(R.id.ARReceive);
@@ -289,6 +289,181 @@ public class Control extends Fragment {
                     int kp = KpAY.getProgress();
                     int ki = KiAY.getProgress();
                     String msg = "pays,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+
+        WRRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click WR Rec");
+                    String msg = "pwrr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //      .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        WRSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click wR Send");
+                    int kd = KdwR.getProgress();
+                    int kp = KpwR.getProgress();
+                    int ki = KiwR.getProgress();
+                    String msg = "pwrs,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        WPRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click WP Rec");
+                    String msg = "pwpr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        WPSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click WP Send");
+                    int kd = KdwP.getProgress();
+                    int kp = KpwP.getProgress();
+                    int ki = KiwP.getProgress();
+                    String msg = "pwps,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        WYRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click WY Rec");
+                    String msg = "pwyr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        WYSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click wY Send");
+                    int kd = KdwY.getProgress();
+                    int kp = KpwY.getProgress();
+                    int ki = KiwY.getProgress();
+                    String msg = "pwys,";
                     msg += kp;
                     msg += ",";
                     msg += ki;
@@ -624,7 +799,7 @@ public class Control extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // TODO Auto-generated method stub
-                float val = (float) progress/100;
+                float val = (float) progress / 100;
                 KpARVal.setText(Float.toString(val));
             }
         });
@@ -671,7 +846,7 @@ public class Control extends Fragment {
             }
         });
 
-        KdAP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        KpAP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
@@ -689,6 +864,299 @@ public class Control extends Fragment {
 
                 float val = (float) progress/100;
                 KpAPVal.setText(Float.toString(val));
+            }
+        });
+
+        KdAP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KdAPVal.setText(Float.toString(val));
+            }
+        });
+
+        KiAP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KiAPVal.setText(Float.toString(val));
+            }
+        });
+
+        KpAY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KpAYVal.setText(Float.toString(val));
+            }
+        });
+
+        KdAY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KdAYVal.setText(Float.toString(val));
+            }
+        });
+
+        KiAY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress / 100;
+                KiAYVal.setText(Float.toString(val));
+            }
+        });
+
+        KpwR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // TODO Auto-generated method stub
+                float val = (float) progress / 100;
+                KpwRVal.setText(Float.toString(val));
+            }
+        });
+
+        KdwR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KdwRVal.setText(Float.toString(val));
+            }
+        });
+
+        KiwR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KiwRVal.setText(Float.toString(val));
+            }
+        });
+
+        KpwP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KpwPVal.setText(Float.toString(val));
+            }
+        });
+
+        KdwP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KdwPVal.setText(Float.toString(val));
+            }
+        });
+
+        KiwP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KiwPVal.setText(Float.toString(val));
+            }
+        });
+
+        KpwY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KpwYVal.setText(Float.toString(val));
+            }
+        });
+
+        KdwY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KdwYVal.setText(Float.toString(val));
+            }
+        });
+
+        KiwY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
+                // TODO Auto-generated method stub
+
+                float val = (float) progress/100;
+                KiwYVal.setText(Float.toString(val));
             }
         });
 
