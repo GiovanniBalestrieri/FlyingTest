@@ -122,8 +122,195 @@ public class Control extends Fragment {
         KpwYVal = (TextView) v.findViewById(R.id.KdWYval);
         KpwYVal = (TextView) v.findViewById(R.id.KiWYval);
 
+        //Buttons
+        ARRec = (Button) v.findViewById(R.id.ARReceive);
+        ARSen = (Button) v.findViewById(R.id.ARSend);
+        APRec = (Button) v.findViewById(R.id.APReceive);
+        APSen = (Button) v.findViewById(R.id.APSend);
+        AYRec = (Button) v.findViewById(R.id.AYReceive);
+        AYSen = (Button) v.findViewById(R.id.AYSend);
+        WRRec = (Button) v.findViewById(R.id.WRReceive);
+        WRSen = (Button) v.findViewById(R.id.WRSend);
+        WPRec = (Button) v.findViewById(R.id.WPReceive);
+        WPSen = (Button) v.findViewById(R.id.WPSend);
+        WYRec = (Button) v.findViewById(R.id.WYReceive);
+        WYSen = (Button) v.findViewById(R.id.WYSend);
 
 
+
+        ARRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click ARRec");
+                    String msg = "parr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                          //      .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        ARSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click ARRSend");
+                    int kd = KdAR.getProgress();
+                    int kp = KpAR.getProgress();
+                    int ki = KiAR.getProgress();
+                    String msg = "pars,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        APRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click AP Rec");
+                    String msg = "papr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        APSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click AP Send");
+                    int kd = KdAP.getProgress();
+                    int kp = KpAP.getProgress();
+                    int ki = KiAP.getProgress();
+                    String msg = "paps,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        AYRec.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click ARRec");
+                    String msg = "payr";
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        AYSen.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (blue.isAssociated()) {
+                    Log.e("CPanel Report", "Click AYSend");
+                    int kd = KdAY.getProgress();
+                    int kp = KpAY.getProgress();
+                    int ki = KiAY.getProgress();
+                    String msg = "pays,";
+                    msg += kp;
+                    msg += ",";
+                    msg += ki;
+                    msg += ",";
+                    msg += kd;
+                    msg += "\n";
+                    if (blue.blueWrite(msg)) {
+                        //Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        //        .show();
+                    }
+                    else {
+                        Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
 
 
         //TODO
@@ -149,7 +336,8 @@ public class Control extends Fragment {
                 if (blue.isAssociated()) {
                     Log.e("Control Report", "enabling Roll PID");
                     String msg = "p";
-                    msg += "ar";if(isChecked)
+                    msg += "ar";
+                    if(isChecked)
                     {
                         msg += "e";
                         aRLL.setVisibility(LinearLayout.VISIBLE);
@@ -194,13 +382,34 @@ public class Control extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
-                if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+            if (blue.isAssociated()) {
+                Log.e("Control Report", "enabling Pitch PID");
+                String msg = "p";
+                msg += "ap";
+                if(isChecked)
+                {
+                    msg += "e";
                     aPLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
+                    msg += "d";
                     aPLL.setVisibility(LinearLayout.GONE);
                 }
+                msg += "\n";
+                if (blue.blueWrite(msg)) {
+                    Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                            .show();
+                }
+                else {
+                    Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            else
+            {
+                Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        .show();
+            }
             }
         });
 
@@ -222,13 +431,34 @@ public class Control extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
-                if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+            if (blue.isAssociated()) {
+                Log.e("Control Report", "enabling Yaw PID");
+                String msg = "p";
+                msg += "ay";
+                if(isChecked)
+                {
+                    msg += "e";
                     aYLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
+                    msg += "d";
                     aYLL.setVisibility(LinearLayout.GONE);
                 }
+                msg += "\n";
+                if (blue.blueWrite(msg)) {
+                    Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                            .show();
+                }
+                else {
+                    Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            else
+            {
+                Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        .show();
+            }
             }
         });
 
@@ -250,13 +480,34 @@ public class Control extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
-                if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+            if (blue.isAssociated()) {
+                Log.e("Control Report", "enabling ùW Roll PID");
+                String msg = "p";
+                msg += "wr";
+                if(isChecked)
+                {
+                    msg += "e";
                     wRLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
+                    msg += "d";
                     wRLL.setVisibility(LinearLayout.GONE);
                 }
+                msg += "\n";
+                if (blue.blueWrite(msg)) {
+                    Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                            .show();
+                }
+                else {
+                    Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            else
+            {
+                Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        .show();
+            }
             }
         });
 
@@ -278,13 +529,34 @@ public class Control extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
-                if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+            if (blue.isAssociated()) {
+                Log.e("Control Report", "enabling W Pitch PID");
+                String msg = "p";
+                msg += "wp";
+                if(isChecked)
+                {
+                    msg += "e";
                     wPLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
+                    msg += "d";
                     wPLL.setVisibility(LinearLayout.GONE);
                 }
+                msg += "\n";
+                if (blue.blueWrite(msg)) {
+                    Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                            .show();
+                }
+                else {
+                    Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            else
+            {
+                Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        .show();
+            }
             }
         });
 
@@ -306,13 +578,34 @@ public class Control extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
-                if(isChecked){
-                    //aRoll.setText("Switch is currently ON");
+            if (blue.isAssociated()) {
+                Log.e("Control Report", "enabling W Yaw PID");
+                String msg = "p";
+                msg += "wy";
+                if(isChecked)
+                {
+                    msg += "e";
                     wYLL.setVisibility(LinearLayout.VISIBLE);
                 }else{
                     //aRoll.setText("Switch is currently OFF");
+                    msg += "d";
                     wYLL.setVisibility(LinearLayout.GONE);
                 }
+                msg += "\n";
+                if (blue.blueWrite(msg)) {
+                    Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                            .show();
+                }
+                else {
+                    Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            else
+            {
+                Toast.makeText(getActivity().getApplicationContext(), " No device found. Connect first!", Toast.LENGTH_LONG)
+                        .show();
+            }
             }
         });
 
@@ -463,15 +756,75 @@ public class Control extends Fragment {
                                                                 kpF = values[4];
                                                                 kiF = values[5];
                                                                 kdF = values[6];
-                                                                KpARVal.setText(kpF);
-                                                                KiARVal.setText(kiF);
-                                                                KdARVal.setText(kdF);
-                                                                int kp = (int) (Float.parseFloat(kpF) * 100);
-                                                                int ki = (int) (Float.parseFloat(kiF) * 100);
-                                                                int kd = (int) (Float.parseFloat(kdF) * 100);
-                                                                KpAR.setProgress(kp);
-                                                                KiAR.setProgress(ki);
-                                                                KdAR.setProgress(kd);
+                                                                // Angular Position
+                                                                if(Integer.parseInt(v2)==1 && Integer.parseInt(v3)==0) {
+                                                                    KpARVal.setText(kpF);
+                                                                    KiARVal.setText(kiF);
+                                                                    KdARVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpAR.setProgress(kp);
+                                                                    KiAR.setProgress(ki);
+                                                                    KdAR.setProgress(kd);
+                                                                }
+                                                                else if(Integer.parseInt(v2)==1 && Integer.parseInt(v3)==1) {
+                                                                    KpAPVal.setText(kpF);
+                                                                    KiAPVal.setText(kiF);
+                                                                    KdAPVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpAP.setProgress(kp);
+                                                                    KiAP.setProgress(ki);
+                                                                    KdAP.setProgress(kd);
+                                                                }
+                                                                else if(Integer.parseInt(v2)==1 && Integer.parseInt(v3)==2) {
+                                                                    KpAYVal.setText(kpF);
+                                                                    KiAYVal.setText(kiF);
+                                                                    KdAYVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpAY.setProgress(kp);
+                                                                    KiAY.setProgress(ki);
+                                                                    KdAY.setProgress(kd);
+                                                                }
+                                                                // Angular Velocity
+                                                                if(Integer.parseInt(v2)==2 && Integer.parseInt(v3)==0) {
+                                                                    KpwRVal.setText(kpF);
+                                                                    KiwRVal.setText(kiF);
+                                                                    KdwRVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpwR.setProgress(kp);
+                                                                    KiwR.setProgress(ki);
+                                                                    KdwR.setProgress(kd);
+                                                                }
+                                                                else if(Integer.parseInt(v2)==2 && Integer.parseInt(v3)==1) {
+                                                                    KpwPVal.setText(kpF);
+                                                                    KiwPVal.setText(kiF);
+                                                                    KdwPVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpwP.setProgress(kp);
+                                                                    KiwP.setProgress(ki);
+                                                                    KdwP.setProgress(kd);
+                                                                }
+                                                                else if(Integer.parseInt(v2)==2 && Integer.parseInt(v3)==2) {
+                                                                    KpwYVal.setText(kpF);
+                                                                    KiwYVal.setText(kiF);
+                                                                    KdwYVal.setText(kdF);
+                                                                    int kp = (int) (Float.parseFloat(kpF) * 100);
+                                                                    int ki = (int) (Float.parseFloat(kiF) * 100);
+                                                                    int kd = (int) (Float.parseFloat(kdF) * 100);
+                                                                    KpwY.setProgress(kp);
+                                                                    KiwY.setProgress(ki);
+                                                                    KdwY.setProgress(kd);
+                                                                }
+                                                                showToast("Dak");
                                                             }
                                                         }
                                                     } else {
