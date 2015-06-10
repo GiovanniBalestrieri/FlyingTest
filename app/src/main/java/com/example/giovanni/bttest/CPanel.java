@@ -157,6 +157,7 @@ public class CPanel extends Fragment
 
                                             }
                                         });
+                                    // clean buffer
                                     } else {
                                         readBuffer[readBufferPosition++] = b;
                                     }
