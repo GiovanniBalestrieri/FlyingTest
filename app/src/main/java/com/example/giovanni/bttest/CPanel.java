@@ -16,6 +16,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giovanni.bttest.Libraries.SerialProtocol;
 import com.example.giovanni.bttest.Libraries.sendStartTask;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -41,13 +42,18 @@ public class CPanel extends Fragment
 
     static Handler handler;
     static final byte delimiter = 10;
+    static int messLength = 25;
 
     static public byte[] readBuffer;
+    static public byte[] header;
+    static public byte[] command;
+    static public byte[] footer;
     static int readBufferPosition;
     static int counter;
 
     static public Thread workerThread;
     static public boolean stopWorker;
+    SerialProtocol protocol;
 
     InputStream inputStream;
     private GoogleMap mMap;
@@ -75,6 +81,7 @@ public class CPanel extends Fragment
         pidSwitch = (Switch) v.findViewById(R.id.enPidSlider);
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(),this.getActivity());
+        protocol = new SerialProtocol(getActivity().getApplicationContext(),this.getActivity());
 
         inputStream = blue.getInput();
 
@@ -102,63 +109,76 @@ public class CPanel extends Fragment
                                 for (int i = 0; i < bytesAvailable; i++)
                                 {
                                     byte b = packetBytes[i];
-                                    if (b == delimiter) {
-                                        byte[] encodedBytes = new byte[readBufferPosition];
-                                        System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
-                                        final String data = new String(encodedBytes, "US-ASCII");
-                                        readBufferPosition = 0;
+                                    if (b == delimiter)
+                                    {
+                                        // To be confirmed
+                                        if (bytesAvailable >= 25 && bytesAvailable <= 30)
+                                        {
+                                            header = protocol.getHeader(packetBytes);
+                                            // TODO Check dest,src,num protocol
+                                            command = protocol.getCommand(packetBytes);
+                                            // TODO extract data
+                                            footer = protocol.getFooter(packetBytes);
+                                            // TODO check footer
+                                        }
+                                        else {
+                                            byte[] encodedBytes = new byte[readBufferPosition];
+                                            System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
+                                            final String data = new String(encodedBytes, "US-ASCII");
+                                            readBufferPosition = 0;
 
-                                        handler.post(new Runnable() {
-                                            public void run() {
-                                                log.setText(data);
-                                                if (data.length() >= 1)
-                                                {
-                                                    char first = data.charAt(0);
-                                                    if (first == 'o') {
-                                                        // Orientation status
-                                                        String values[] = data.replace("o,", "").split(",");
-                                                        String v1 = "";
-                                                        String v2 = "";
-                                                        String v3 = "";
-                                                        if (values != null && values.length == 4) {
-                                                            v1 = values[0];
-                                                            v2 = values[1];
-                                                            v3 = values[2];
-                                                        }
-                                                        roll.setText(v1);
-                                                        pitch.setText(v2);
-                                                        yaw.setText(v3);
-                                                    } else if (first == 'c') {
-                                                        // Commands
-                                                        String values[] = data.replace("c", "").split(",");
-                                                        String v1 = "";
-                                                        if (values != null && values.length == 3) {
-                                                            v1 = values[1];
-                                                            if (v1.equals("p")) {
-                                                                warning.setTextColor(getResources().getColor(R.color.green));
-                                                                warning.setText("Pid Enabled");
-                                                            } else {
-                                                                warning.setTextColor(getResources().getColor(R.color.red));
-                                                                warning.setText("Pid Disabled");
+                                            handler.post(new Runnable() {
+                                                public void run() {
+                                                    log.setText(data);
+                                                    if (data.length() >= 1) {
+                                                        char first = data.charAt(0);
+                                                        if (first == 'o') {
+                                                            // Orientation status
+                                                            String values[] = data.replace("o,", "").split(",");
+                                                            String v1 = "";
+                                                            String v2 = "";
+                                                            String v3 = "";
+                                                            if (values != null && values.length == 4) {
+                                                                v1 = values[0];
+                                                                v2 = values[1];
+                                                                v3 = values[2];
                                                             }
+                                                            roll.setText(v1);
+                                                            pitch.setText(v2);
+                                                            yaw.setText(v3);
+                                                        } else if (first == 'c') {
+                                                            // Commands
+                                                            String values[] = data.replace("c", "").split(",");
+                                                            String v1 = "";
+                                                            if (values != null && values.length == 3) {
+                                                                v1 = values[1];
+                                                                if (v1.equals("p")) {
+                                                                    warning.setTextColor(getResources().getColor(R.color.green));
+                                                                    warning.setText("Pid Enabled");
+                                                                } else {
+                                                                    warning.setTextColor(getResources().getColor(R.color.red));
+                                                                    warning.setText("Pid Disabled");
+                                                                }
+                                                            }
+                                                        } else if (first == 's') {
+                                                            // TODO state.setText()
+                                                        } else if (first == 'K') {
+                                                            blue.associated = true;
+                                                            blue.blueWrite("K");
+                                                        } else if (first == 'A') {
+                                                            showToast("Ack Received");
+                                                        } else {
+                                                            // Received non correct message
+                                                            //showToast(data);
                                                         }
-                                                    } else if (first == 's') {
-                                                        // TODO state.setText()
-                                                    } else if (first == 'K') {
-                                                        blue.associated = true;
-                                                        blue.blueWrite("K");
-                                                    } else if (first == 'A') {
-                                                        showToast("Ack Received");
-                                                    } else {
-                                                        // Received non correct message
-                                                        //showToast(data);
                                                     }
-                                                }
 
-                                            }
-                                        });
-                                    // clean buffer
-                                    } else {
+                                                }
+                                            });
+                                        }
+                                    // if delimiter ==
+                                    }
+                                    else {
                                         readBuffer[readBufferPosition++] = b;
                                     }
                                 }

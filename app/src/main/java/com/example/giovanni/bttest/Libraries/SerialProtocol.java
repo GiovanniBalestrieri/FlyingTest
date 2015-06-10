@@ -3,10 +3,13 @@ package com.example.giovanni.bttest.Libraries;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Arrays;
 
 /**
  * Created by userk on 10/06/15.
@@ -109,6 +112,27 @@ public class SerialProtocol {
         message = new byte[footerLength];
 
         return footer;
+    }
+
+    // Assuming the message is correct
+    // returns the headerLength bytes of the header
+    public byte[] getHeader(byte[] message) throws IOException {
+        byte[] subArray = Arrays.copyOfRange(message, 0, headerLength);
+        return subArray;
+    }
+
+    // Assuming the message is correct
+    // returns the cmdLength bytes of the command
+    public byte[] getCommand(byte[] message) throws IOException {
+        byte[] subArray = Arrays.copyOfRange(message, headerLength+1, headerLength + cmdLength +1);
+        return subArray;
+    }
+
+    // Assuming the message is correct
+    // returns the cmdLength bytes of the command
+    public byte[] getFooter(byte[] message) throws IOException {
+        byte[] subArray = Arrays.copyOfRange(message, headerLength + cmdLength +1, headerLength + cmdLength +  1 + footerLength);
+        return subArray;
     }
 
     public static byte [] float2Bytes(float value)
