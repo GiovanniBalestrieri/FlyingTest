@@ -115,6 +115,7 @@ public class CPanel extends Fragment
                                         if (bytesAvailable >= 25 && bytesAvailable <= 30)
                                         {
                                             header = protocol.getHeader(packetBytes);
+                                            Log.i("CPanel","Header:" + header.toString());
                                             // TODO Check dest,src,num protocol
                                             command = protocol.getCommand(packetBytes);
                                             // TODO extract data
@@ -130,9 +131,11 @@ public class CPanel extends Fragment
                                             handler.post(new Runnable() {
                                                 public void run() {
                                                     log.setText(data);
-                                                    if (data.length() >= 1) {
+                                                    if (data.length() >= 1)
+                                                    {
                                                         char first = data.charAt(0);
-                                                        if (first == 'o') {
+                                                        if (first == 'o')
+                                                        {
                                                             // Orientation status
                                                             String values[] = data.replace("o,", "").split(",");
                                                             String v1 = "";

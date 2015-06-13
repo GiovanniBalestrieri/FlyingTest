@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.giovanni.bttest.Libraries.BluAdapter;
+import com.example.giovanni.bttest.Libraries.SerialProtocol;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +32,18 @@ public class Bluetooth {
     public static int TURNED_OFF = 0;
     public static int ASSOCIATED = 2;
     public static int NOT_ASSOCIATED = 3;
+
+    private static boolean serialProtocol;
+
     private static final String TAG_NAME = "name";
     private static final String TAG_ID = "id";
+
+    private static final int TENZO = 1;
+    private static final int MATLAB = 3;
+    private static final int ANDROID = 2;
+    private static final int CON_CH = 31;
+
+    private static byte[] header, footer, command, message;
 
     private static final int REQUEST_ENABLE_BT = 0;
     private static BluetoothAdapter mBluetoothAdapter;
@@ -56,6 +67,7 @@ public class Bluetooth {
     static public boolean stopWorker;
 
     public static ArrayList<HashMap<String, String>> devicesList;
+    public static SerialProtocol serial;
 
     private static Context ctx;
 
@@ -69,6 +81,12 @@ public class Bluetooth {
             // Device does not support Bluetooth
             Toast.makeText(ctx, "The device does not support Bluetooth. Attaccati al ca'..."
                     , Toast.LENGTH_LONG).show();
+        }
+
+        // If transmission protocol = robust serial initialize class
+        if (serialProtocol)
+        {
+            serial = new SerialProtocol(ctx, acti);
         }
     }
 
@@ -208,7 +226,17 @@ public class Bluetooth {
 
             try {
                 mmOutputStream = mmSocket.getOutputStream();
-                blueWrite("b");
+                if (!serialProtocol) {
+                    blueWrite("b");
+                }
+                else
+                {
+                    header = serial.createHeader(ANDROID, TENZO, 1);
+                    command = serial.createCommand(CON_CH, 1,0,0,0);
+                    footer = serial.createFooter();
+                    message = serial.assembleMess(header,command,footer);
+                    blueWrite(message);
+                }
             } catch (IOException e) {
 
                 Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
@@ -228,6 +256,19 @@ public class Bluetooth {
         try
         {
             mmOutputStream.write(s.getBytes());
+            return true;
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean blueWrite(byte[] s)
+    {
+        try
+        {
+            mmOutputStream.write(s);
             return true;
         } catch (IOException e)
         {

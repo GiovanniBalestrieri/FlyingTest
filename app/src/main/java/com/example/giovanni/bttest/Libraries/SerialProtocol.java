@@ -111,7 +111,7 @@ public class SerialProtocol {
     {
         message = new byte[footerLength];
 
-        return footer;
+        return message;
     }
 
     // Assuming the message is correct

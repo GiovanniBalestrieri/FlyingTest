@@ -12,7 +12,8 @@
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp">
 
 
         <LinearLayout
@@ -45,11 +46,12 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:src="@drawable/drone" />
+                android:src="@drawable/drone"/>
 
 
             <Button
                 android:id="@+id/tour"
+                android:visibility="gone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -57,7 +59,6 @@
                 android:text="@string/tour"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
-
 
         </LinearLayout>
     </LinearLayout>
