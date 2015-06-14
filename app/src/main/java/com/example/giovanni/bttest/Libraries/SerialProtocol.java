@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
@@ -23,7 +24,7 @@ public class SerialProtocol {
     // Protocol
     static int version = 6;
     static int headerLength = 8;
-    static int cmdLength = 14;
+    static int cmdLength = 17;
     static int footerLength = 1;
     static int crc = 8;
     static int finalTag = 10;
@@ -109,8 +110,10 @@ public class SerialProtocol {
 
     public byte[] assembleMess(byte[] header, byte[] cmd, byte[] footer)
     {
-        message = new byte[footerLength];
-
+        message = new byte[header.length + cmd.length + footer.length];
+        System.arraycopy(header, 0, message, 0, header.length);
+        System.arraycopy(cmd, 0, message, header.length, cmd.length);
+        System.arraycopy(footer, 0, message, header.length+cmd.length, footer.length);
         return message;
     }
 
@@ -137,6 +140,6 @@ public class SerialProtocol {
 
     public static byte [] float2Bytes(float value)
     {
-        return ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putFloat(value).array();
+        return ByteBuffer.allocate(4)/*.order(ByteOrder.LITTLE_ENDIAN)*/.putFloat(value).array();
     }
 }

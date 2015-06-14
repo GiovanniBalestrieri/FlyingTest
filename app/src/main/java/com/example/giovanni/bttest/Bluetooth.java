@@ -33,7 +33,7 @@ public class Bluetooth {
     public static int ASSOCIATED = 2;
     public static int NOT_ASSOCIATED = 3;
 
-    private static boolean serialProtocol;
+    private static boolean serialProtocol = true;
 
     private static final String TAG_NAME = "name";
     private static final String TAG_ID = "id";
@@ -232,9 +232,9 @@ public class Bluetooth {
                 else
                 {
                     header = serial.createHeader(ANDROID, TENZO, 1);
-                    command = serial.createCommand(CON_CH, 1,0,0,0);
+                    command = serial.createCommand(CON_CH, 1, 0, 0, 0);
                     footer = serial.createFooter();
-                    message = serial.assembleMess(header,command,footer);
+                    message = serial.assembleMess(header, command, footer);
                     blueWrite(message);
                 }
             } catch (IOException e) {
