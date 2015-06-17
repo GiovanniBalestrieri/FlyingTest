@@ -277,14 +277,13 @@ public class Bluetooth {
         }
     }
 
-    public InputStream getInput()
-    {
+    public InputStream getInput(){
         return mmInputStream;
     }
 
     public static void beginListenForData()
     {
-        final byte delimiter = 10; //This is the ASCII code for a newline character
+        final byte delimiter = 10;
         handler = new Handler();
         stopWorker = false;
         readBufferPosition = 0;
@@ -315,7 +314,6 @@ public class Bluetooth {
                                     {
                                         public void run()
                                         {
-                                            //myLabel.setText(data);
                                             char first = data.charAt(0);
                                             if (first=='K') {
                                                 associated = true;
