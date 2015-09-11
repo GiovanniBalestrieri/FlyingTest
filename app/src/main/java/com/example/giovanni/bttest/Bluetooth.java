@@ -53,6 +53,7 @@ public class Bluetooth {
     public static OutputStream mmOutputStream;
     public static InputStream mmInputStream;
     public static boolean associated = false;
+    public static boolean watchdog = false;
     public String data = "";
 
 
@@ -97,8 +98,7 @@ public class Bluetooth {
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-            Toast.makeText(ctx, "Turned on"
-                    , Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Turned on" , Toast.LENGTH_LONG).show();
             result = 1;
         } else {
             Toast.makeText(ctx, "Already on",
@@ -178,7 +178,7 @@ public class Bluetooth {
                 }
             });
         }
-            return devicesList;
+        return devicesList;
     }
 
     public static void connect(String uid) throws IOException
@@ -227,18 +227,17 @@ public class Bluetooth {
             try {
                 mmOutputStream = mmSocket.getOutputStream();
                 if (!serialProtocol) {
-                    blueWrite("b");
+                    blueWrite("c");
                 }
-                else
-                {
+                else {
                     header = serial.createHeader(ANDROID, TENZO, 1);
-                    command = serial.createCommand(CON_CH, 1, 0, 0, 0);
+                    command = serial.createCommand(CON_CH, (float) 1, 0, 0, 0);
                     footer = serial.createFooter();
                     message = serial.assembleMess(header, command, footer);
                     blueWrite(message);
                 }
-            } catch (IOException e) {
-
+            } catch (IOException e)
+            {
                 Log.e("Settings report", "Output stream creation failed:" + e.getMessage() + ".");
             }
         }
@@ -287,7 +286,7 @@ public class Bluetooth {
         handler = new Handler();
         stopWorker = false;
         readBufferPosition = 0;
-        readBuffer = new byte[1024];
+        readBuffer = new byte[50];
         workerThread = new Thread(new Runnable()
         {
             public void run()
@@ -321,11 +320,16 @@ public class Bluetooth {
                                                 blueWrite("K");
                                                 Toast.makeText(activity.getApplicationContext(), "Associated!", Toast.LENGTH_LONG)
                                                         .show();
-
-                                                stopWorker = true;
+                                                //stopWorker = true;
                                             }
-                                            else
-                                            {
+                                            else if (first=='w' && !watchdog) {
+                                                watchdog = true;
+                                                // Send second part of the handshake
+                                                //blueWrite("K");
+                                                //Toast.makeText(activity.getApplicationContext(), "Associated!", Toast.LENGTH_SHORT).show();
+                                                //stopWorker = true;
+                                            }
+                                            else {
                                                 Toast.makeText(activity.getApplicationContext(), data, Toast.LENGTH_SHORT                                                )
                                                         .show();
                                             }
@@ -347,7 +351,6 @@ public class Bluetooth {
                 }
             }
         });
-
         workerThread.start();
     }
 

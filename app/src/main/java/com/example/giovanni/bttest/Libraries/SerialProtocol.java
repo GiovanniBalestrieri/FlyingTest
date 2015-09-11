@@ -140,6 +140,6 @@ public class SerialProtocol {
 
     public static byte [] float2Bytes(float value)
     {
-        return ByteBuffer.allocate(4)/*.order(ByteOrder.LITTLE_ENDIAN)*/.putFloat(value).array();
+        return ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putFloat(value).array();
     }
 }

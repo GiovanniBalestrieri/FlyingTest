@@ -28,6 +28,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.giovanni.bttest.Libraries.DeviceListActivity;
+import com.example.giovanni.bttest.Libraries.SerialProtocol;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,6 +68,13 @@ public class Settings extends Fragment
     ArrayList<HashMap<String, String>> devicesList;
     private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
     IntentFilter filter = new IntentFilter();
+    private static boolean serialProtocol = true;
+    public static SerialProtocol serial;
+    private static byte[] header, footer, command, message;
+    private static final int TENZO = 1;
+    private static final int MATLAB = 3;
+    private static final int ANDROID = 2;
+    private static final int CON_CH = 31;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +101,11 @@ public class Settings extends Fragment
         Off.setVisibility(view.GONE);
 
         final Bluetooth blue = new Bluetooth(getActivity().getApplicationContext(), this.getActivity());
+        // If transmission protocol = robust serial initialize class
+        if (serialProtocol)
+        {
+            serial = new SerialProtocol(this.getActivity().getApplicationContext(),this.getActivity());
+        }
 
         mBluetoothAdapter	= BluetoothAdapter.getDefaultAdapter();
 
@@ -178,11 +191,18 @@ public class Settings extends Fragment
             take.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (blue.isAssociated()) {
+                        /*
                         Log.e("Settings Report", "Click take");
                         String msg = "a";
                         msg += "\n";
-                        if (blue.blueWrite(msg)) {
-                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + msg, Toast.LENGTH_LONG)
+                        */
+
+                        header = serial.createHeader(ANDROID, TENZO, 1);
+                        command = serial.createCommand(CON_CH, 1, 0, 0, 0);
+                        footer = serial.createFooter();
+                        message = serial.assembleMess(header, command, footer);
+                        if (blue.blueWrite(message)) {
+                            Toast.makeText(getActivity().getApplicationContext(), " Sent: " + message, Toast.LENGTH_LONG)
                                     .show();
                         } else {
                             Toast.makeText(getActivity().getApplicationContext(), " Message error ", Toast.LENGTH_LONG)
