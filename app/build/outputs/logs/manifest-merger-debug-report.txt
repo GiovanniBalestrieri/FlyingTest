@@ -1,321 +1,180 @@
 -- Merging decision tree log ---
 manifest
-ADDED from AndroidManifest.xml:2:1
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:2:1-68:12
 	package
-		ADDED from AndroidManifest.xml:3:5
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:3:5-42
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.BLUETOOTH
-ADDED from AndroidManifest.xml:5:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:5:5-68
 	android:name
-		ADDED from AndroidManifest.xml:5:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:5:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from AndroidManifest.xml:6:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:6:5-74
 	android:name
-		ADDED from AndroidManifest.xml:6:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:6:22-71
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from AndroidManifest.xml:7:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:7:5-79
 	android:name
-		ADDED from AndroidManifest.xml:7:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:7:22-76
 uses-permission#android.permission.INTERNET
-ADDED from AndroidManifest.xml:8:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from AndroidManifest.xml:8:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:8:22-64
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from AndroidManifest.xml:9:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:9:5-81
 	android:name
-		ADDED from AndroidManifest.xml:9:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:9:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from AndroidManifest.xml:10:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:10:5-79
 	android:name
-		ADDED from AndroidManifest.xml:10:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:10:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:11:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:11:5-80
 	android:name
-		ADDED from AndroidManifest.xml:11:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:11:22-78
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from AndroidManifest.xml:12:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:12:5-97
 	android:name
-		ADDED from AndroidManifest.xml:12:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:12:22-95
 permission#com.example.giovanni.bttest.android.permission.MAPS_RECEIVE
-ADDED from AndroidManifest.xml:13:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:13:5-15:46
 	android:protectionLevel
-		ADDED from AndroidManifest.xml:15:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:15:9-44
 	android:name
-		ADDED from AndroidManifest.xml:14:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:14:9-83
 uses-permission#com.example.giovanni.bttest.android.permission.MAPS_RECEIVE
-ADDED from AndroidManifest.xml:16:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:16:5-98
 	android:name
-		ADDED from AndroidManifest.xml:16:22
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:16:22-96
 application
-ADDED from AndroidManifest.xml:18:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-ads:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-analytics:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-analytics:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-appindexing:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-appstate:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-cast:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-drive:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-fitness:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-location:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-games:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-drive:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-gcm:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-identity:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-location:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-nearby:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-panorama:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-plus:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-safetynet:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-wallet:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-identity:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
-MERGED from com.google.android.gms:play-services-wearable:7.0.0:19:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
-MERGED from com.android.support:support-v4:22.0.0:22:5
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:18:5-66:15
+MERGED from [com.google.android.gms:play-services:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-ads:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-analytics:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-appindexing:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-appstate:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-cast:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-fitness:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-games:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-drive:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-gcm:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-location:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-nearby:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-panorama:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-plus:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-wallet:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-identity:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-maps:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-wearable:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-base:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:22.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from AndroidManifest.xml:21:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup
-		ADDED from AndroidManifest.xml:19:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:19:9-35
 	android:icon
-		ADDED from AndroidManifest.xml:20:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:20:9-43
 	android:theme
-		ADDED from AndroidManifest.xml:22:9
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:22:9-40
 activity#com.example.giovanni.bttest.MainActivity
-ADDED from AndroidManifest.xml:24:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:24:9-32:20
 	android:label
-		ADDED from AndroidManifest.xml:26:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:26:13-45
 	android:name
-		ADDED from AndroidManifest.xml:25:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:25:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:27:13
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:28:17
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from AndroidManifest.xml:28:25
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:30:17
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from AndroidManifest.xml:30:27
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:30:27-74
 uses-library#com.google.android.maps
-ADDED from AndroidManifest.xml:35:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:35:9-64
 	android:name
-		ADDED from AndroidManifest.xml:35:23
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:35:23-61
 meta-data#com.google.android.geo.API_KEY
-ADDED from AndroidManifest.xml:37:9
-	android:name
-		ADDED from AndroidManifest.xml:38:13
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:37:9-39:70
 	android:value
-		ADDED from AndroidManifest.xml:39:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:39:13-68
+	android:name
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:38:13-58
 meta-data#com.google.android.gms.version
-ADDED from AndroidManifest.xml:41:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-MERGED from com.google.android.gms:play-services-base:7.0.0:21:9
-	android:name
-		ADDED from AndroidManifest.xml:42:13
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:41:9-43:68
+MERGED from [com.google.android.gms:play-services-base:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from AndroidManifest.xml:43:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:43:13-66
+	android:name
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:42:13-58
 activity#com.example.giovanni.bttest.NoConnection
-ADDED from AndroidManifest.xml:45:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:45:9-47:53
 	android:label
-		ADDED from AndroidManifest.xml:47:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:47:13-51
 	android:name
-		ADDED from AndroidManifest.xml:46:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:46:13-41
 activity#com.example.giovanni.bttest.Connection
-ADDED from AndroidManifest.xml:49:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:49:9-52:20
 	android:label
-		ADDED from AndroidManifest.xml:51:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:51:13-45
 	android:name
-		ADDED from AndroidManifest.xml:50:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:50:13-39
 activity#com.example.giovanni.bttest.Libraries.DeviceListActivity
-ADDED from AndroidManifest.xml:54:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:54:9-57:20
 	android:label
-		ADDED from AndroidManifest.xml:56:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:56:13-37
 	android:name
-		ADDED from AndroidManifest.xml:55:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:55:13-57
 activity#com.example.giovanni.bttest.RoverPosition
-ADDED from AndroidManifest.xml:59:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:59:9-61:47
 	android:label
-		ADDED from AndroidManifest.xml:61:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:61:13-45
 	android:name
-		ADDED from AndroidManifest.xml:60:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:60:13-42
 activity#com.example.giovanni.bttest.Utils.AccelOrientExample
-ADDED from AndroidManifest.xml:63:9
+ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:63:9-65:38
 	android:label
-		ADDED from AndroidManifest.xml:65:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:65:13-36
 	android:name
-		ADDED from AndroidManifest.xml:64:13
+		ADDED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml:64:13-53
 uses-sdk
-INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-ads:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-analytics:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-analytics:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-appindexing:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-appstate:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-cast:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-drive:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-fitness:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-location:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-games:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-drive:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-gcm:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-identity:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-location:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-nearby:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-panorama:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-plus:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-safetynet:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-wallet:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-identity:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-maps:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
-MERGED from com.google.android.gms:play-services-wearable:7.0.0:18:5
-MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
-MERGED from com.android.support:support-v4:22.0.0:20:5
+INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.google.android.gms:play-services:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-ads:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-analytics:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appindexing:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appstate:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-cast:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-fitness:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-games:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-drive:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-gcm:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-location:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-nearby:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-panorama:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-plus:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-safetynet:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-wallet:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-identity:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-maps:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-wearable:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:7.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:22.0.0] /home/userk/development/android/studioProjects/FlyingTest/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
+		INJECTED from /home/userk/development/android/studioProjects/FlyingTest/app/src/main/AndroidManifest.xml
